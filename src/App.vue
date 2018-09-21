@@ -7,73 +7,21 @@
       <div class="pallete__color pallete__color-3"></div>
       <div class="pallete__color pallete__color-4"></div>
     </div>
-    <div id="grid">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="flex-row">
+    <canvas></canvas>
     </div>
+      <div class="buttonHolder">
+      Grid Size
+      <div class="pixel__button">
+        8x8
+      </div>
+      <div class="pixel__button">
+        32x32
+      </div>
+      </div>
   </div>
+
+
 </template>
 
 <script>
@@ -150,7 +98,7 @@ export default {
 
 #grid{
   position:relative;
-  margin: auto;
+  margin-right: 20px;
   border-top: 8px solid #113711;
   border-bottom: 8px solid #113711;
 
@@ -184,5 +132,28 @@ export default {
   border: 2px dashed white;
   width: 64px;
 }
+
+  .buttonHolder{
+   font-size: 32px;
+  }
+
+  .pixel__button{
+    font-size: 32px;
+    color:#ccdba4;
+    background-color: #113711;
+    width: 100px; 
+    height: 200px;
+    margin: 20px auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .flex-row{
+    display:flex;
+    justify-content: center;
+  }
+
+
 
 </style>
