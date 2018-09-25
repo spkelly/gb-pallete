@@ -8,17 +8,36 @@
       <div class="pallete__color pallete__color-4"></div>
     </div>
     <div class="flex-row">
-    <canvas></canvas>
-    </div>
       <div class="buttonHolder">
-      Grid Size
-      <div class="pixel__button">
-        8x8
+        Grid Size
+        <div class="pixel__button-horiz">
+          8x8
+        </div>
+        <div class="pixel__button-horiz">
+          32x32
+        </div>
       </div>
-      <div class="pixel__button">
-        32x32
+      <canvas id="can"></canvas>
+      <div class="output" contenteditable=true>
+        <pre>
+    
+    
+    const unsigned char example[] = {
+      0x03,0x00,0x83,0x00,0x00,0x00,0x00,0x00,
+    }
+        </pre>
       </div>
-      </div>
+      
+      
+    </div>
+    <div class="buttonHolder">
+        <div class="pixel__button-vert">
+          clear grid
+        </div>
+        <div class="pixel__button-vert">
+          generate data
+        </div>
+    </div>
   </div>
 
 
@@ -34,6 +53,22 @@ export default {
 </script>
 
 <style>
+
+.output{
+  
+  text-align: left;
+  font-size: 14px;
+  height: 500px;
+  width: 400px;
+  border: 1px solid black;
+    border: 8px solid #113711;
+  overflow: wrap;
+}
+
+.output pre{
+  margin: 0;
+  padding: 0;
+}
 
 #pallete{
   padding: 24px 0;
@@ -82,6 +117,14 @@ export default {
 #pallete:after{
   right: -8px;
 }
+
+#can{
+  margin: 0 10px;
+  position: relative;
+  border: 8px solid #113711;
+  background-color: #ccdba4;
+}
+
 #app {
   position: absolute;
   
@@ -97,15 +140,8 @@ export default {
 }
 
 #grid{
-  position:relative;
-  margin-right: 20px;
   border-top: 8px solid #113711;
   border-bottom: 8px solid #113711;
-
-  width: 512px;
-  display: flex;
-  flex-wrap: wrap;
-
 }
 
   #grid:before, #grid:after{
@@ -125,24 +161,30 @@ export default {
     right: -8px;
   }
 
-#grid div{
-  background-color: #ccdba4;
-  height: 64px;
-  box-sizing: border-box;
-  border: 2px dashed white;
-  width: 64px;
-}
+
 
   .buttonHolder{
    font-size: 32px;
   }
 
-  .pixel__button{
+  .pixel__button-horiz{
     font-size: 32px;
     color:#ccdba4;
     background-color: #113711;
     width: 100px; 
     height: 200px;
+    margin: 20px auto;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .pixel__button-vert{
+    font-size: 32px;
+    color:#ccdba4;
+    background-color: #113711;
+    width: 200px; 
+    height: 100px;
     margin: 20px auto;
     display:flex;
     align-items: center;
