@@ -1,12 +1,7 @@
 <template>
   <div id="app">
     Gameboy Tile Generator
-    <div id="pallete">
-      <div class="pallete__color pallete__color-1"></div>
-      <div class="pallete__color pallete__color-2"></div>
-      <div class="pallete__color pallete__color-3"></div>
-      <div class="pallete__color pallete__color-4"></div>
-    </div>
+    <colorPallete />
     <div class="flex-row">
       <div class="buttonHolder">
         Grid Size
@@ -20,15 +15,13 @@
       <canvas id="can"></canvas>
       <div class="output" contenteditable=true>
         <pre>
-    
-    
+
+
     const unsigned char example[] = {
       0x03,0x00,0x83,0x00,0x00,0x00,0x00,0x00,
     }
         </pre>
       </div>
-      
-      
     </div>
     <div class="buttonHolder">
         <div class="pixel__button-vert">
@@ -39,38 +32,50 @@
         </div>
     </div>
   </div>
-
-
 </template>
 
 <script>
-export default {
-  name: 'app',
-  components: {
+import colorPallete from './components/ColorPallete.vue';
 
+export default {
+
+
+  name: 'app',
+  data:function(){
+    return{
+      selectedColor:'#FF0000'
+    }
+  },
+  methods:{
+    changeColor(color){
+      this.selectedColor = color
+    }
+  },
+  components:{
+    colorPallete
   }
 }
 </script>
 
 <style>
 
-.output{
-  
+.output {
+
   text-align: left;
   font-size: 14px;
   height: 500px;
   width: 400px;
   border: 1px solid black;
-    border: 8px solid #113711;
+  border: 8px solid #113711;
   overflow: wrap;
 }
 
-.output pre{
+.output pre {
   margin: 0;
   padding: 0;
 }
 
-#pallete{
+#pallete {
   padding: 24px 0;
   justify-content: space-around;
   position: relative;
@@ -79,29 +84,34 @@ export default {
   width: 512px;
   border-top: 8px solid #113711;
   border-bottom: 8px solid #113711;
-    background-color: #ccdba4;
+  background-color: #ccdba4;
 }
-.pallete__color{
+
+.pallete__color {
   width: 40px;
   height: 40px;
-  border: 4px solid  black; 
+  border: 4px solid black;
   background-color: red;
 }
 
-.pallete__color-1{
+.pallete__color-1 {
   background-color: #113711;
 }
-.pallete__color-2{
+
+.pallete__color-2 {
   background-color: #346031;
 }
-.pallete__color-3{
+
+.pallete__color-3 {
   background-color: #8daa27;
 }
-.pallete__color-4{
+
+.pallete__color-4 {
   background-color: #9eb929;
 }
 
-#pallete:before, #pallete:after{
+#pallete:before,
+#pallete:after {
   content: '';
   top: 0;
   width: 8px;
@@ -110,15 +120,15 @@ export default {
   position: absolute;
 }
 
-#pallete:before{
+#pallete:before {
   left: -8px;
 }
 
-#pallete:after{
+#pallete:after {
   right: -8px;
 }
 
-#can{
+#can {
   margin: 0 10px;
   position: relative;
   border: 8px solid #113711;
@@ -127,7 +137,7 @@ export default {
 
 #app {
   position: absolute;
-  
+
   text-align: center;
   bottom: 0px;
   font-size: 64px;
@@ -136,66 +146,65 @@ export default {
   left: 0px;
   background-color: #9cba29;
   color: #113711;
-  font-family:'VT323', monospace;
+  font-family: 'VT323', monospace;
 }
 
-#grid{
+#grid {
   border-top: 8px solid #113711;
   border-bottom: 8px solid #113711;
 }
 
-  #grid:before, #grid:after{
-    content: '';
-    top: 0;
-    width: 8px;
-    height: 100%;
-    background: #113711;
-    position: absolute;
-  }
+#grid:before,
+#grid:after {
+  content: '';
+  top: 0;
+  width: 8px;
+  height: 100%;
+  background: #113711;
+  position: absolute;
+}
 
-  #grid:before{
-    left: -8px;
-  }
+#grid:before {
+  left: -8px;
+}
 
-  #grid:after{
-    right: -8px;
-  }
-
-
-
-  .buttonHolder{
-   font-size: 32px;
-  }
-
-  .pixel__button-horiz{
-    font-size: 32px;
-    color:#ccdba4;
-    background-color: #113711;
-    width: 100px; 
-    height: 200px;
-    margin: 20px auto;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .pixel__button-vert{
-    font-size: 32px;
-    color:#ccdba4;
-    background-color: #113711;
-    width: 200px; 
-    height: 100px;
-    margin: 20px auto;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .flex-row{
-    display:flex;
-    justify-content: center;
-  }
+#grid:after {
+  right: -8px;
+}
 
 
+
+.buttonHolder {
+  font-size: 32px;
+}
+
+.pixel__button-horiz {
+  font-size: 32px;
+  color: #ccdba4;
+  background-color: #113711;
+  width: 100px;
+  height: 200px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pixel__button-vert {
+  font-size: 32px;
+  color: #ccdba4;
+  background-color: #113711;
+  width: 200px;
+  height: 100px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: center;
+}
 
 </style>
