@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-on:changecolor="changeColor($event)">
     Gameboy Tile Generator
     <colorPallete />
     <div class="flex-row">
@@ -12,7 +12,7 @@
           32x32
         </div>
       </div>
-      <canvas id="can"></canvas>
+      <TileCanvas :pixelColor="selectedColor" />
       <div class="output" contenteditable=true>
         <pre>
 
@@ -36,6 +36,7 @@
 
 <script>
 import colorPallete from './components/ColorPallete.vue';
+import TileCanvas from './components/TileCanvas.vue';
 
 export default {
 
@@ -48,11 +49,15 @@ export default {
   },
   methods:{
     changeColor(color){
-      this.selectedColor = color
+      console.log(color)
     }
   },
   components:{
-    colorPallete
+    colorPallete,
+    TileCanvas
+  },
+  events:{
+    change
   }
 }
 </script>
