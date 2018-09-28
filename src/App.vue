@@ -1,7 +1,7 @@
 <template>
-  <div id="app" v-on:changecolor="changeColor($event)">
+  <div id="app">
     Gameboy Tile Generator
-    <colorPallete />
+    <colorPallete v-on:changecolor="changeColor"/>
     <div class="flex-row">
       <div class="buttonHolder">
         Grid Size
@@ -49,15 +49,13 @@ export default {
   },
   methods:{
     changeColor(color){
-      console.log(color)
+      console.log(color);
+      this.selectedColor = color;
     }
   },
   components:{
     colorPallete,
     TileCanvas
-  },
-  events:{
-    change
   }
 }
 </script>
