@@ -13,7 +13,7 @@
         </div>
       </div>
       <TileCanvas :pixelColor="selectedColor" v-on:canvaschange="handleCanvasChange" />
-      <TileOutput :tableData="tableData" />
+      <TileOutput :tileeData="tableData" />
     </div>
     <div class="buttonHolder">
       <div class="pixel__button-vert">
@@ -59,7 +59,9 @@ export default {
     TileOutput
   },
   mounted() {
-    this.tableData = Array(8).fill(null).map(()=>Array(8).fill(0));
+    this.tableData = Array(8).fill(null).map(()=>{
+     return Array(8).fill(0));
+    };
   },
 }
 </script>

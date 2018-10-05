@@ -1,7 +1,7 @@
 <template>
   <div class="out">
     <div class="output" >
-      <code v-for="(row, index) in tableData" :key="index">
+      <code v-for="(row, index) in tileData" :key="index">
         {{row.join()}}
       </code>
     </div>
@@ -13,7 +13,7 @@
 export default {
   name: "TileOutput",
   props:{
-    tableData:Array
+    tileData:Array
   }
 }
 </script>
