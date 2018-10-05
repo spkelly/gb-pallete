@@ -12,24 +12,16 @@
           32x32
         </div>
       </div>
-      <TileCanvas :pixelColor="selectedColor" />
-      <div class="output" contenteditable=true>
-        <pre>
-
-
-    const unsigned char example[] = {
-      0x03,0x00,0x83,0x00,0x00,0x00,0x00,0x00,
-    }
-        </pre>
-      </div>
+      <TileCanvas :pixelColor="selectedColor" v-on:canvaschange="handleCanvasChange" />
+      <TileOutput :tableData="tableData" />
     </div>
     <div class="buttonHolder">
-        <div class="pixel__button-vert">
-          clear grid
-        </div>
-        <div class="pixel__button-vert">
-          generate data
-        </div>
+      <div class="pixel__button-vert">
+        clear grid
+      </div>
+      <div class="pixel__button-vert">
+        generate data
+      </div>
     </div>
   </div>
 </template>
@@ -37,33 +29,44 @@
 <script>
 import colorPallete from './components/ColorPallete.vue';
 import TileCanvas from './components/TileCanvas.vue';
+import TileOutput from './components/TileOutput.vue';
 
 export default {
-
-
+  //TODO: sepearate into smaller components
+  // TODO: move styles to other components
   name: 'app',
   data:function(){
     return{
-      selectedColor:'#FF0000'
+      selectedColor:'#113711',
+      colorPalleteShade: 3,
+      tableData:[]
     }
   },
   methods:{
-    changeColor(color){
-      console.log(color);
+    changeColor: function(color, shade){
       this.selectedColor = color;
+      this.colorPalleteShade = shade;
+    },
+    handleCanvasChange: function(e){
+      let modifiedRow = this.tableData[e.row].slice(0);
+      modifiedRow[e.col] = this.colorPalleteShade;
+      this.$set(this.tableData,e.row,modifiedRow);
     }
   },
   components:{
     colorPallete,
-    TileCanvas
-  }
+    TileCanvas,
+    TileOutput
+  },
+  mounted() {
+    this.tableData = Array(8).fill(null).map(()=>Array(8).fill(0));
+  },
 }
 </script>
 
 <style>
 
 .output {
-
   text-align: left;
   font-size: 14px;
   height: 500px;
@@ -208,6 +211,14 @@ export default {
 .flex-row {
   display: flex;
   justify-content: center;
+}
+
+code{
+  display:block;
+  width:50%;
+  margin: 0 auto;
+  font-family: 'VT323';
+  font-size:32px;
 }
 
 </style>
