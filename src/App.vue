@@ -13,7 +13,7 @@
         </div>
       </div>
       <TileCanvas :pixelColor="selectedColor" v-on:canvaschange="handleCanvasChange" />
-      <TileOutput :tileeData="tableData" />
+      <TileOutput :tileData="tileData" />
     </div>
     <div class="buttonHolder">
       <div class="pixel__button-vert">
@@ -32,14 +32,14 @@ import TileCanvas from './components/TileCanvas.vue';
 import TileOutput from './components/TileOutput.vue';
 
 export default {
-  //TODO: sepearate into smaller components
+  // TODO: sepearate into smaller components
   // TODO: move styles to other components
   name: 'app',
   data:function(){
     return{
       selectedColor:'#113711',
       colorPalleteShade: 3,
-      tableData:[]
+      tileData:[]
     }
   },
   methods:{
@@ -48,9 +48,9 @@ export default {
       this.colorPalleteShade = shade;
     },
     handleCanvasChange: function(e){
-      let modifiedRow = this.tableData[e.row].slice(0);
+      let modifiedRow = this.tileData[e.row].slice(0);
       modifiedRow[e.col] = this.colorPalleteShade;
-      this.$set(this.tableData,e.row,modifiedRow);
+      this.$set(this.tileData,e.row,modifiedRow);
     }
   },
   components:{
@@ -59,9 +59,7 @@ export default {
     TileOutput
   },
   mounted() {
-    this.tableData = Array(8).fill(null).map(()=>{
-     return Array(8).fill(0));
-    };
+    this.tileData = Array(8).fill(null).map(()=>Array(8).fill(0));
   },
 }
 </script>

@@ -21,19 +21,20 @@
         mouseDown: false
       }
     },
-     //TODO: Make this cleaner especially get PaintLocation
+     // TODO: Make this cleaner especially getPaintLocation()
     methods:{
       handleMouseUp: function(e){
         this.mouseDown = false;
       },
       handleMouseDown: function(e){
         let paintLocation= this.getPaintLocation(e);
+
         this.drawOnCanvas(paintLocation);
         this.mouseDown = true;
       },
       handleMouseMove: function(e){
         if(this.mouseDown){
-          let paintLocation= this.getPaintLocation(e);
+          let paintLocation = this.getPaintLocation(e);
           this.drawOnCanvas(paintLocation);
         }
       },
@@ -56,3 +57,36 @@
     }
   }
 </script>
+
+<style lang="css">
+  #can {
+  margin: 0 10px;
+  position: relative;
+  border: 8px solid #113711;
+  background-color: #ccdba4;
+  } 
+
+  #grid {
+    border-top: 8px solid #113711;
+    border-bottom: 8px solid #113711;
+  }
+
+  #grid:before,
+  #grid:after {
+    content: '';
+    top: 0;
+    width: 8px;
+    height: 100%;
+    background: #113711;
+    position: absolute;
+  }
+
+  #grid:before {
+    left: -8px;
+  }
+
+  #grid:after {
+    right: -8px;
+  }
+
+</style>
