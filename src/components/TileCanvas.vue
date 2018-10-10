@@ -70,23 +70,4 @@
     border-top: 8px solid #113711;
     border-bottom: 8px solid #113711;
   }
-
-  #grid:before,
-  #grid:after {
-    content: '';
-    top: 0;
-    width: 8px;
-    height: 100%;
-    background: #113711;
-    position: absolute;
-  }
-
-  #grid:before {
-    left: -8px;
-  }
-
-  #grid:after {
-    right: -8px;
-  }
-
 </style>

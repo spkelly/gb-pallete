@@ -1,20 +1,41 @@
 
 <template>
   <div id="pallete">
-    <div  v-on:click="$emit('changecolor','#113711',3)" class="pallete__color pallete__color-1"></div>
-    <div  v-on:click="$emit('changecolor','#346031',2)" class="pallete__color pallete__color-2"></div>
-    <div  v-on:click="$emit('changecolor','#8daa27',1)" class="pallete__color pallete__color-3"></div>
-    <div  v-on:click="$emit('changecolor','#9eb929',0)" class="pallete__color pallete__color-4"></div>
+    <div
+      v-for="(color, index) in pallete" :key="index"  
+      v-on:click="handleClick(index)"
+      :class="[palleteClass,{active:color.isActive}]"
+    ></div>
   </div>
 </template>
 
 <script>
-// TODO: use v-for for this
   export default {
     name:'colorPallete',
     data: function(){
       return{
-        colors: ['#113711','#346031','#8daa27','#9eb929']
+        pallete: [{
+            color:'#9eb929',
+          },
+          {
+            color:'#8daa27'
+          },
+          {
+            color:'#346031'
+          },
+          {
+            color:'#113711'
+          }],
+          palleteClass: 'pallete__color'
+      }
+    },
+    methods:{
+      handleClick: function(index){         
+        let palleteSelection = this.pallete[index];
+        palleteSelection.isActive = !palleteSelection.isActive;
+        this.$set(this.pallete,index,palleteSelection);
+        console.log("working");
+        this.$emit('changecolor',palleteSelection.color,index);
       }
     }
   }
@@ -22,6 +43,8 @@
 
 
 <style>
+
+  .active{background-color: blue !important;}
 
   #pallete {
   padding: 24px 0;
@@ -39,23 +62,7 @@
   width: 40px;
   height: 40px;
   border: 4px solid black;
-  background-color: red;
-}
-
-.pallete__color-1 {
-  background-color: #113711;
-}
-
-.pallete__color-2 {
-  background-color: #346031;
-}
-
-.pallete__color-3 {
-  background-color: #8daa27;
-}
-
-.pallete__color-4 {
-  background-color: #9eb929;
+  background-color: black;
 }
 
 #pallete:before,

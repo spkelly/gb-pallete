@@ -65,82 +65,6 @@ export default {
 </script>
 
 <style>
-
-.output {
-  text-align: left;
-  font-size: 14px;
-  height: 500px;
-  width: 400px;
-  border: 1px solid black;
-  border: 8px solid #113711;
-  overflow: wrap;
-}
-
-.output pre {
-  margin: 0;
-  padding: 0;
-}
-
-#pallete {
-  padding: 24px 0;
-  justify-content: space-around;
-  position: relative;
-  display: flex;
-  margin: 20px auto;
-  width: 512px;
-  border-top: 8px solid #113711;
-  border-bottom: 8px solid #113711;
-  background-color: #ccdba4;
-}
-
-.pallete__color {
-  width: 40px;
-  height: 40px;
-  border: 4px solid black;
-  background-color: red;
-}
-
-.pallete__color-1 {
-  background-color: #113711;
-}
-
-.pallete__color-2 {
-  background-color: #346031;
-}
-
-.pallete__color-3 {
-  background-color: #8daa27;
-}
-
-.pallete__color-4 {
-  background-color: #9eb929;
-}
-
-#pallete:before,
-#pallete:after {
-  content: '';
-  top: 0;
-  width: 8px;
-  height: 100%;
-  background: #113711;
-  position: absolute;
-}
-
-#pallete:before {
-  left: -8px;
-}
-
-#pallete:after {
-  right: -8px;
-}
-
-#can {
-  margin: 0 10px;
-  position: relative;
-  border: 8px solid #113711;
-  background-color: #ccdba4;
-}
-
 #app {
   position: absolute;
 
@@ -154,30 +78,6 @@ export default {
   color: #113711;
   font-family: 'VT323', monospace;
 }
-
-#grid {
-  border-top: 8px solid #113711;
-  border-bottom: 8px solid #113711;
-}
-
-#grid:before,
-#grid:after {
-  content: '';
-  top: 0;
-  width: 8px;
-  height: 100%;
-  background: #113711;
-  position: absolute;
-}
-
-#grid:before {
-  left: -8px;
-}
-
-#grid:after {
-  right: -8px;
-}
-
 
 
 .buttonHolder {
@@ -213,12 +113,6 @@ export default {
   justify-content: center;
 }
 
-code{
-  display:block;
-  width:50%;
-  margin: 0 auto;
-  font-family: 'VT323';
-  font-size:32px;
-}
+
 
 </style>
