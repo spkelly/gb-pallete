@@ -1,7 +1,4 @@
-const PIXEL_COUNT = 8;
-const GRID_WIDTH = 500;
-const GRID_HEIGHT = 500;
-const PIXEL_SIZE = GRID_WIDTH/PIXEL_COUNT;
+import {PIXEL_SIZE,GRID_HEIGHT,GRID_WIDTH} from './constants';
 
 export function getMousePosition(e){
   let target = e.target;
