@@ -20,13 +20,16 @@ export default {
 
 <style>
   .output {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
     text-align: left;
     font-size: 14px;
     height: 500px;
     width: 400px;
     border: 1px solid black;
     border: 8px solid #113711;
-    overflow: wrap;
   }
 
   .output pre {
@@ -35,10 +38,10 @@ export default {
   }
   
   code{
-  display:block;
-  width:50%;
-  margin: 0 auto;
-  font-family: 'VT323';
-  font-size:32px;
-}
+
+    display:block;
+    margin: 0 auto;
+    font-family: 'VT323';
+    font-size:32px;
+  }
 </style>
