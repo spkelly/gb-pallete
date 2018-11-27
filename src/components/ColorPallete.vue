@@ -4,7 +4,8 @@
     <div
       v-for="(color, index) in pallete" :key="index"  
       v-on:click="handleClick(index)"
-      :class="[palleteClass,{active:color.isActive}]"
+      v-bind:style="{backgroundColor:color.color}"
+      :class="[palleteClass,{active: activeIndex == index}]"
     ></div>
   </div>
 </template>
@@ -12,8 +13,9 @@
 <script>
   export default {
     name:'colorPallete',
-    data: function(){
+    data(){
       return{
+        activeIndex:0,
         pallete: [{
             color:'#9eb929',
           },
@@ -32,9 +34,8 @@
     methods:{
       handleClick: function(index){         
         let palleteSelection = this.pallete[index];
-        palleteSelection.isActive = !palleteSelection.isActive;
+        this.activeIndex = index;
         this.$set(this.pallete,index,palleteSelection);
-        console.log("working");
         this.$emit('changecolor',palleteSelection.color,index);
       }
     }
@@ -44,7 +45,7 @@
 
 <style>
 
-  .active{background-color: blue !important;}
+  .active{border-color: gold !important;}
 
   #pallete {
   padding: 24px 0;
