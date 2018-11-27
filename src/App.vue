@@ -59,7 +59,7 @@ export default {
     TileOutput
   },
   mounted() {
-    this.tileData = Array(8).fill(null).map(()=>Array(8).fill(0));
+    this.tileData = Array(8).fill(null).map(()=>Array(8).fill("-"));
   },
 }
 </script>
