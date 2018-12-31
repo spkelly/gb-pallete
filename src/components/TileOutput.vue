@@ -4,7 +4,6 @@
       <code v-for="(row, index) in pixelMatrix" :key="index">
         {{row.join()}}
       </code>
-      <button v-on:click="printStore"></button>
     </div>
   </div>
 </template>
@@ -17,10 +16,8 @@ export default {
     tileData:Array
   },
   methods:{
-    printStore(){
-      console.log(this)
-    }
   },
+
   computed: {
     pixelMatrix(){
       return this.$store.state.pixelMatrix;

@@ -13,10 +13,10 @@
         </div>
       </div>
       <TileCanvas :pixelColor="selectedColor" v-on:canvaschange="handleCanvasChange" />
-      <TileOutput :tileData="$store.state.tileData" />
+      <TileOutput :tileData="$store.state.pixelMatrix" />
     </div>
     <div class="buttonHolder">
-      <div class="pixel__button-vert" v-on:click="$store.dispatch('resetMatrix')">
+      <div class="pixel__button-vert" v-on:click="$store.dispatch('clearGrid')">
         clear grid
       </div>
       <div class="pixel__button-vert" >
@@ -42,7 +42,13 @@ export default {
     return{
       selectedColor:'#113711',
       colorPalleteShade: 3,
-      tileData: this.$store.state.tileData
+     
+    }
+  },
+
+  computed:{
+    tileData(){
+       return this.$store.state.pixelMatrix
     }
   },
   methods:{
@@ -51,10 +57,12 @@ export default {
       this.colorPalleteShade = shade;
     },
     handleCanvasChange: function(e){
-      let modifiedRow = this.tileData[e.row].slice(0);
+      let tileData = this.tileData;
+      let modifiedRow = tileData[e.row].slice(0);
+      
       modifiedRow[e.col] = this.colorPalleteShade;
-      this.$set(this.tileData,e.row,modifiedRow);
-      this.$store.commit('updateMatrix',this.tileData)
+      this.$set(tileData,e.row,modifiedRow);
+      this.$store.commit('updateMatrix',tileData);
     },
     clearCanvas(){
       
@@ -67,8 +75,8 @@ export default {
     DownloadButton
   },
   mounted() {
-    this.tileData = Array(8).fill(null).map(()=>Array(8).fill(0));
-    this.$store.dispatch('resetMatrix');
+    let data = Array(8).fill(null).map(()=>Array(8).fill(0));
+    this.$store.dispatch('resetMatrix',data);
   },
 }
 </script>

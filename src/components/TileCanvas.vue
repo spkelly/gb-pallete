@@ -54,6 +54,8 @@
       this.canvas = this.$refs.canvas;
       this.ctx = this.$refs.canvas.getContext("2d");
       CanvasHelper.drawGrid(this.canvas,this.ctx);
+      this.$store.dispatch("initializeCanvas",this.canvas);
+
     }
   }
 </script>
