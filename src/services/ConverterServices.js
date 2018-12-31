@@ -7,23 +7,28 @@
   params
     pixelMatrix: a 2d array of pixelData (numbers between 0 - 3)
 */
-function convertPixelMatrix(pixelMatrix){
-  let dataArray = [];
-  pixelMatrix.foreach( pixelRow => {
-    let hiBits,loBits = '';
+export function convertPixelMatrix(pixelMatrix){
 
-    pixelRow.foreach( pixel => {
+  let dataArray = [];
+  pixelMatrix.forEach( pixelRow => {
+    let hiBits = '';
+    let loBits = hiBits;
+
+    pixelRow.forEach( pixel => {
+      
       let binary = convertToBase(10, 2, pixel);
+      
       if(binary.length < 2 ){
         binary = padBinary(binary)
       }
       hiBits+=binary[0];
       loBits+=binary[1];
     });
-    dataArray.push(convertToBase(2, 16, loBits, hiBits));
+    let numbers = convertNumbers(2, 16, loBits, hiBits);
+    dataArray.push(numbers.flat(2));
   })
-
-  return dataArray;
+  console.log(dataArray);
+  return padStrings(dataArray.flat(2),2);
 }
 
 /* 
@@ -62,3 +67,13 @@ function convertNumbers(current,target,...numbers){
 function padBinary(binary){
   return '0' + binary
 }
+
+function padStrings(strings,constraint){
+  return strings.map((string)=>{
+    console.log(string)
+    if(string.length < constraint){
+      return '0'+string;
+    }
+    return string;
+  });
+} 

@@ -3,7 +3,7 @@
     Gameboy Tile Generator
     <colorPallete v-on:changecolor="changeColor"/>
     <div class="flex-row">
-      <div class="buttonHolder">
+      <div class="buttonHolder-vert">
         Grid Size
         <div class="pixel__button-horiz">
           8x8
@@ -13,16 +13,18 @@
         </div>
       </div>
       <TileCanvas :pixelColor="selectedColor" v-on:canvaschange="handleCanvasChange" />
-      <TileOutput :tileData="tileData" />
+      <TileOutput :tileData="$store.state.tileData" />
     </div>
     <div class="buttonHolder">
-      <div class="pixel__button-vert">
+      <div class="pixel__button-vert" v-on:click="$store.dispatch('resetMatrix')">
         clear grid
       </div>
-      <div class="pixel__button-vert">
+      <div class="pixel__button-vert" >
         generate data
       </div>
+      
     </div>
+    <DownloadButton />
   </div>
 </template>
 
@@ -30,6 +32,7 @@
 import colorPallete from './components/ColorPallete.vue';
 import TileCanvas from './components/TileCanvas.vue';
 import TileOutput from './components/TileOutput.vue';
+import DownloadButton from './components/DownloadButton';
 
 export default {
   // TODO: sepearate into smaller components
@@ -39,7 +42,7 @@ export default {
     return{
       selectedColor:'#113711',
       colorPalleteShade: 3,
-      tileData:[]
+      tileData: this.$store.state.tileData
     }
   },
   methods:{
@@ -51,15 +54,21 @@ export default {
       let modifiedRow = this.tileData[e.row].slice(0);
       modifiedRow[e.col] = this.colorPalleteShade;
       this.$set(this.tileData,e.row,modifiedRow);
+      this.$store.commit('updateMatrix',this.tileData)
+    },
+    clearCanvas(){
+      
     }
   },
   components:{
     colorPallete,
     TileCanvas,
-    TileOutput
+    TileOutput,
+    DownloadButton
   },
   mounted() {
-    this.tileData = Array(8).fill(null).map(()=>Array(8).fill("-"));
+    this.tileData = Array(8).fill(null).map(()=>Array(8).fill(0));
+    this.$store.dispatch('resetMatrix');
   },
 }
 </script>
@@ -81,8 +90,18 @@ export default {
 
 
 .buttonHolder {
+  display: flex;
+  justify-content: center;
   font-size: 32px;
 }
+
+.buttonHolder-vert{
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  font-size: 32px;
+}
+
 
 .pixel__button-horiz {
   font-size: 32px;
@@ -102,7 +121,7 @@ export default {
   background-color: #113711;
   width: 200px;
   height: 100px;
-  margin: 20px auto;
+  margin: 20px;
   display: flex;
   align-items: center;
   justify-content: center;

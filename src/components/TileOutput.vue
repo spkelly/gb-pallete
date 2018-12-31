@@ -1,9 +1,10 @@
 <template>
   <div class="out">
     <div class="output" >
-      <code v-for="(row, index) in tileData" :key="index">
+      <code v-for="(row, index) in pixelMatrix" :key="index">
         {{row.join()}}
       </code>
+      <button v-on:click="printStore"></button>
     </div>
   </div>
 </template>
@@ -14,6 +15,16 @@ export default {
   name: "TileOutput",
   props:{
     tileData:Array
+  },
+  methods:{
+    printStore(){
+      console.log(this)
+    }
+  },
+  computed: {
+    pixelMatrix(){
+      return this.$store.state.pixelMatrix;
+    }
   }
 }
 </script>

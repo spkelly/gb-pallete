@@ -15,7 +15,7 @@
     name:'colorPallete',
     data(){
       return{
-        activeIndex:0,
+        activeIndex:3,
         pallete: [{
             color:'#9eb929',
           },
