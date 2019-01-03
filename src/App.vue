@@ -37,6 +37,7 @@ import DownloadButton from './components/DownloadButton';
 export default {
   // TODO: sepearate into smaller components
   // TODO: move styles to other components
+  // TODO: Change class names in template
   name: 'app',
   data:function(){
     return{
@@ -59,7 +60,7 @@ export default {
     handleCanvasChange: function(e){
       let tileData = this.tileData;
       let modifiedRow = tileData[e.row].slice(0);
-      
+
       modifiedRow[e.col] = this.colorPalleteShade;
       this.$set(tileData,e.row,modifiedRow);
       this.$store.commit('updateMatrix',tileData);

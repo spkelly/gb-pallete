@@ -1,9 +1,13 @@
 <template>
+  <div class="canvas_holder">
+  <canvas id="viewport" ref="viewport">
+  </canvas>
   <canvas id="can" ref="canvas" 
     v-on:mouseup="handleMouseUp"
     v-on:mousedown="handleMouseDown" 
     v-on:mousemove="handleMouseMove"
   ></canvas>
+  </div>
 </template>
 
 <script>
@@ -43,6 +47,7 @@
         let pos = CanvasHelper.getMousePosition(e);
         let coords = CanvasHelper.getPixelCoordinates(pos);
         let offset = CanvasHelper.getPixelOffset(coords);
+        console.log(pos);
         return {coords,offset};
       },
       drawOnCanvas: function({coords,offset}){
@@ -52,8 +57,12 @@
     },
     mounted() {
       this.canvas = this.$refs.canvas;
+      let vp = this.$refs.viewport;
+      let vpCTX = vp.getContext("2d");
+      CanvasHelper.drawGrid(vp,vpCTX);
+      this.canvas.width = 500;
+      this.canvas.height = 500;
       this.ctx = this.$refs.canvas.getContext("2d");
-      CanvasHelper.drawGrid(this.canvas,this.ctx);
       this.$store.dispatch("initializeCanvas",this.canvas);
 
     }
@@ -61,12 +70,23 @@
 </script>
 
 <style lang="css">
+  .canvas_holder{
+    height: 500px;
+    border: 8px solid #113711;
+    margin: 0 10px;
+    position:relative;
+  }
   #can {
-  margin: 0 10px;
-  position: relative;
-  border: 8px solid #113711;
+    z-index: 0;
+    position: absolute;
+    left: 0px;
+    height: 500px;
+    width: 500px;
+  }
+
+  #viewport{
   background-color: #ccdba4;
-  } 
+  }
 
   #grid {
     border-top: 8px solid #113711;

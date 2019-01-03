@@ -1,11 +1,11 @@
 import {PIXEL_SIZE,GRID_HEIGHT,GRID_WIDTH} from './constants';
 
 export function getMousePosition(e){
-  let target = e.target;
+  let target = e.target.parentElement;
 
   return{
-    x: e.pageX - target.offsetLeft,
-    y: e.pageY - target.offsetTop
+    x: e.pageX - target.offsetLeft - 7,
+    y: e.pageY - target.offsetTop - 7
   }
 }
 

@@ -5,15 +5,25 @@
         {{row.join()}}
       </code>
     </div>
+    <div class="mini_output_holder">
+      <MiniOutput />
+      <MiniOutput />
+      <MiniOutput />
+      <MiniOutput />
+    </div>
   </div>
 </template>
 
 <script>
+import MiniOutput from './MiniOutput.vue'
 
 export default {
   name: "TileOutput",
   props:{
     tileData:Array
+  },
+  components:{
+    MiniOutput
   },
   methods:{
   },
@@ -38,6 +48,14 @@ export default {
     width: 400px;
     border: 1px solid black;
     border: 8px solid #113711;
+  }
+
+  .mini_output_holder{
+    margin-top: 10px;
+    border: 8px solid #113711;
+    display: flex;
+    width: 200px;
+    flex-wrap: wrap;
   }
 
   .output pre {
