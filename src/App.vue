@@ -85,15 +85,14 @@ export default {
 <style>
 #app {
   position: absolute;
-
   text-align: center;
   bottom: 0px;
   font-size: 64px;
   top: 0px;
   right: 0px;
   left: 0px;
-  background-color: #9cba29;
-  color: #113711;
+  background-color: #333333;
+  color: #9eb737;
   font-family: 'VT323', monospace;
 }
 
@@ -114,8 +113,8 @@ export default {
 
 .pixel__button-horiz {
   font-size: 32px;
-  color: #ccdba4;
-  background-color: #113711;
+  color: #113711;
+  background-color: #9eb737;
   width: 100px;
   height: 200px;
   margin: 20px auto;
@@ -126,8 +125,8 @@ export default {
 
 .pixel__button-vert {
   font-size: 32px;
-  color: #ccdba4;
-  background-color: #113711;
+  color: #113711;
+  background-color: #9eb737;
   width: 200px;
   height: 100px;
   margin: 20px;
