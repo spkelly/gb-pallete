@@ -54,8 +54,8 @@
   display: flex;
   margin: 20px auto;
   width: 512px;
-  border-top: 8px solid #113711;
-  border-bottom: 8px solid #113711;
+  border-top: 8px solid #9eb737;
+  border-bottom: 8px solid #9eb737;
   background-color: #ccdba4;
 }
 
@@ -72,7 +72,7 @@
   top: 0;
   width: 8px;
   height: 100%;
-  background: #113711;
+  background: #9eb737;
   position: absolute;
 }
 
