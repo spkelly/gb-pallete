@@ -44,15 +44,15 @@ export default {
     flex-wrap: wrap;
     text-align: left;
     font-size: 14px;
-    height: 500px;
-    width: 400px;
+    padding: 8px 0;
     border: 1px solid black;
-    border: 8px solid #113711;
+    border: 8px solid #9eb737;
   }
 
   .mini_output_holder{
+    background-color: #ccdaa6;
     margin-top: 10px;
-    border: 8px solid #113711;
+    border: 8px solid #9eb737;
     display: flex;
     width: 200px;
     flex-wrap: wrap;

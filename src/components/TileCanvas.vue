@@ -72,7 +72,7 @@
 <style lang="css">
   .canvas_holder{
     height: 500px;
-    border: 8px solid #113711;
+    border: 8px solid #9eb737;
     margin: 0 10px;
     position:relative;
   }
