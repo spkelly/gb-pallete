@@ -20,12 +20,9 @@
     },
     watch:{
       currentImageData(newData){
-        if(newData){
-          
+        if(newData){ 
           this.ctx.putImageData(newData,0,0);
-          this.ctx.scale(.5,.5);
-        }
-        
+        }  
       }
     },
     mounted(){
