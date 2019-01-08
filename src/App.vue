@@ -3,28 +3,14 @@
     Gameboy Tile Generator
     <colorPallete v-on:changecolor="changeColor"/>
     <div class="flex-row">
-      <div class="buttonHolder-vert">
-        Grid Size
-        <div class="pixel__button-horiz">
-          8x8
-        </div>
-        <div class="pixel__button-horiz">
-          32x32
-        </div>
-      </div>
       <TileCanvas :pixelColor="selectedColor" v-on:canvaschange="handleCanvasChange" />
       <TileOutput :tileData="$store.state.pixelMatrix" />
     </div>
-    <div class="buttonHolder">
-      <div class="pixel__button-vert" v-on:click="$store.dispatch('clearGrid')">
-        clear grid
-      </div>
-      <div class="pixel__button-vert" >
-        generate data
-      </div>
-      
+    <div class="flex-row">
+        <DownloadButton />
+      <FileControls />
     </div>
-    <DownloadButton />
+
   </div>
 </template>
 
@@ -32,7 +18,8 @@
 import colorPallete from './components/ColorPallete.vue';
 import TileCanvas from './components/TileCanvas.vue';
 import TileOutput from './components/TileOutput.vue';
-import DownloadButton from './components/DownloadButton';
+import DownloadButton from './components/DownloadButton.vue';
+import FileControls from './components/FileControls.vue';
 
 export default {
   // TODO: sepearate into smaller components
@@ -70,10 +57,12 @@ export default {
     }
   },
   components:{
-    colorPallete,
+    colorPallete, 
     TileCanvas,
     TileOutput,
-    DownloadButton
+    FileControls,
+    DownloadButton,
+
   },
   mounted() {
     let data = Array(8).fill(null).map(()=>Array(8).fill(0));

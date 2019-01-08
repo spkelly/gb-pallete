@@ -1,11 +1,18 @@
 <template>
   <div>
-    <button v-on:click="download()"> Click Me</button>
+    <div class="buttonHolder">
+      <div class="pixel__button-vert" v-on:click="$store.dispatch('clearGrid')">
+        clear grid
+      </div>
+      <div class="pixel__button-vert" v-on:click="download()" >
+        generate data
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import {exportToC} from '../services/DownloaderServices';
+import {exportToC, exportToASM} from '../services/DownloaderServices';
 import {convertPixelMatrix} from '../services/ConverterServices';
 
 export default {
@@ -13,11 +20,39 @@ export default {
 
   methods:{
     download(){
-      let pixelMatrix = convertPixelMatrix(this.$store.state.pixelMatrix);
-      exportToC(pixelMatrix.flat(2));
+      let state = this.$store.state; 
+      let pixelMatrix = convertPixelMatrix(state.pixelMatrix);
+
+      if(state.fileType){
+        exportToC(pixelMatrix.flat(2));
+      }
+      else{
+        exportToASM(pixelMatrix.flat(2));
+      }
     }
   }
 }
 
 
 </script>
+
+<style>
+  .buttonHolder {
+    display: flex;
+    justify-content: center;
+    font-size: 32px;
+  }
+  .pixel__button-vert {
+    font-size: 32px;
+    color: #113711;
+    background-color: #9eb737;
+    width: 200px;
+    height: 100px;
+    margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+</style>
