@@ -1,6 +1,7 @@
 const store = {
   state:{
     pixelMatrix: [],
+    fileType:0,
     canvas:{},
     clearedCanvas:{},
     currentImageData:{}
@@ -27,6 +28,10 @@ const store = {
       state.canvas.getContext("2d").putImageData(imageData,0,0);
       state.currentImageData = imageData;
     },
+
+    changeFileType(state,fileType){
+      state.fileType = !state.fileType;
+    }
 
   },
   actions:{
