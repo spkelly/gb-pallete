@@ -1,4 +1,10 @@
 <template>
+  <section >
+  <div class="section-header">
+      <h2 class="header__sub">
+      <input type="text" class="file_name" placeholder="Untitled Tile (click to change title)"></input>
+      </h2>
+    </div>
   <div class="canvas_holder">
   <canvas id="viewport" ref="viewport">
   </canvas>
@@ -8,6 +14,7 @@
     v-on:mousemove="handleMouseMove"
   ></canvas>
   </div>
+  </section>
 </template>
 
 <script>
@@ -69,6 +76,20 @@
 </script>
 
 <style lang="css">
+  .file_name{
+    text-align: center;
+    width: 80%;
+    font-size: 26px;
+    font-family: 'VT323', monospace;
+    color: #9eb737;
+    background-color: transparent;
+    border:none;
+  }
+
+  ::placeholder{
+    color:#9eb737;
+    opacity: 1;
+  }
   .canvas_holder{
     cursor: pointer;
     height: 500px;
