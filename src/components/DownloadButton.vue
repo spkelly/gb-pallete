@@ -43,11 +43,12 @@ export default {
     font-size: 32px;
   }
   .pixel__button-vert {
+    cursor: pointer;
     font-size: 32px;
     color: #113711;
     background-color: #9eb737;
     width: 200px;
-    height: 100px;
+    height: 60px;
     margin: 20px;
     display: flex;
     align-items: center;

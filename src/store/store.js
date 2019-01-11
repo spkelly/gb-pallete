@@ -1,10 +1,14 @@
+import {convertPixelMatrix} from '../services/ConverterServices';
+
+
 const store = {
   state:{
     pixelMatrix: [],
     fileType:0,
     canvas:{},
     clearedCanvas:{},
-    currentImageData:{}
+    currentImageData:{},
+    convertedPixelData:["00","00","00","00","00","00","00","00","00","00","00","00","00","00","00","00"]
   },
   mutations: {
     //TODO: Clean this up
@@ -14,14 +18,22 @@ const store = {
       state.currentImageData = state.canvas.getContext("2d").getImageData(0,0,500,500);
     },
 
+    clearCanvas(state){
+      let ctx = state.canvas.getContext("2d");
+      ctx.clearRect(0,0,state.canvas.width, state.canvas.height);
+    },
+
     setCanvas(state,canvas){
       state.canvas = canvas;
       state.canvas.width = 500;
       state.canvas.height = 500;
     },
+    convertPixelMatrix(state){
+      state.convertedPixelData = convertPixelMatrix(state.pixelMatrix);
+    },
 
     setClearedCanvas(state,imageData){
-      state.clearedCanvas = imageData
+      state.clearedCanvas = imageData 
     },
 
     updateCanvas(state,imageData){
@@ -45,10 +57,10 @@ const store = {
       commit("setClearedCanvas",canvas.getContext("2d").getImageData(0,0,100,100));
     },
 
-    clearGrid({commit,state}){
-      const emptyTileData = Array(8).fill(null).map(()=>Array(8).fill(0));
+    clearGrid({commit}){
+      const emptyTileData = Array(8).fill(null).map(()=>Array(8).fill(0));     
+      commit("clearCanvas");
       commit("updateMatrix",emptyTileData);
-      commit("updateCanvas",state.clearedCanvas);
     }
   }
 };
