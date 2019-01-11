@@ -26,8 +26,7 @@ export function convertPixelMatrix(pixelMatrix){
     });
     let numbers = convertNumbers(2, 16, loBits, hiBits);
     dataArray.push(numbers.flat(2));
-  })
-  console.log(dataArray);
+  });
   return padStrings(dataArray.flat(2),2);
 }
 
@@ -70,7 +69,6 @@ function padBinary(binary){
 
 function padStrings(strings,constraint){
   return strings.map((string)=>{
-    console.log(string)
     if(string.length < constraint){
       return '0'+string;
     }
