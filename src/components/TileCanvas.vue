@@ -47,7 +47,6 @@
         let pos = CanvasHelper.getMousePosition(e);
         let coords = CanvasHelper.getPixelCoordinates(pos);
         let offset = CanvasHelper.getPixelOffset(coords);
-        console.log(pos);
         return {coords,offset};
       },
       drawOnCanvas: function({coords,offset}){
@@ -71,6 +70,7 @@
 
 <style lang="css">
   .canvas_holder{
+    cursor: pointer;
     height: 500px;
     border: 8px solid #9eb737;
     margin: 0 10px;
