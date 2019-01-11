@@ -8,13 +8,14 @@
         ${{data}}
       </p>
     </div>
+    <FileControls /> 
   </section>
 
 </template>
 
 
 <script>
-
+import FileControls from './FileControls.vue';
 
 export default{
   name: "DataOutput",
@@ -22,6 +23,9 @@ export default{
     convertedPixelData(){
       return this.$store.state.convertedPixelData;
     }
+  },
+    components:{
+    FileControls
   }
 
 

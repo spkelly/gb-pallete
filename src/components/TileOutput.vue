@@ -1,5 +1,11 @@
 <template>
-  <div class="out">
+  <section>
+    <div class="section-header">
+      <h2 class="header__sub">
+        Pallete Data
+      </h2>
+    </div>
+    <div class="out">
     <div class="output" >
       <code v-for="(row, index) in pixelMatrix" :key="index">
         {{row.join()}}
@@ -12,10 +18,13 @@
       <MiniOutput />
     </div>
   </div>
+  
+  </section>
+  
 </template>
 
 <script>
-import MiniOutput from './MiniOutput.vue'
+import MiniOutput from './MiniOutput.vue';
 
 export default {
   name: "TileOutput",

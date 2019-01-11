@@ -5,10 +5,10 @@
     <div class="flex-row">
       <TileCanvas :pixelColor="selectedColor" v-on:canvaschange="handleCanvasChange" />
       <TileOutput :tileData="$store.state.pixelMatrix" />
+      <DataOutput />
     </div>
     <div class="flex-row">
-        <DownloadButton />
-      <FileControls />
+      <DownloadButton />
     </div>
 
   </div>
@@ -20,6 +20,7 @@ import TileCanvas from './components/TileCanvas.vue';
 import TileOutput from './components/TileOutput.vue';
 import DownloadButton from './components/DownloadButton.vue';
 import FileControls from './components/FileControls.vue';
+import DataOutput from './components/DataOutput.vue';
 
 export default {
   // TODO: sepearate into smaller components
@@ -51,6 +52,7 @@ export default {
       modifiedRow[e.col] = this.colorPalleteShade;
       this.$set(tileData,e.row,modifiedRow);
       this.$store.commit('updateMatrix',tileData);
+      this.$store.commit('convertPixelMatrix');
     },
     clearCanvas(){
       
@@ -62,6 +64,7 @@ export default {
     TileOutput,
     FileControls,
     DownloadButton,
+    DataOutput
 
   },
   mounted() {
@@ -72,6 +75,10 @@ export default {
 </script>
 
 <style>
+
+.file__controls{
+  margin-left: 12px;
+}
 #app {
   position: absolute;
   text-align: center;
@@ -91,14 +98,14 @@ export default {
   justify-content: center;
   font-size: 32px;
 }
-
+/*
 .buttonHolder-vert{
   display: flex;
   flex-direction:column;
   justify-content: center;
   font-size: 32px;
 }
-
+*/
 
 .pixel__button-horiz {
   font-size: 32px;
@@ -111,7 +118,7 @@ export default {
   align-items: center;
   justify-content: center;
 }
-
+/*
 .pixel__button-vert {
   font-size: 32px;
   color: #113711;
@@ -122,7 +129,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .flex-row {
   display: flex;
