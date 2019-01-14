@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     Gameboy Tile Generator
-    <colorPallete v-on:changecolor="changeColor"/>
+    <colorPallete />
     <div class="flex-row">
-      <TileCanvas :pixelColor="selectedColor" v-on:canvaschange="handleCanvasChange" />
+      <TileCanvas  v-on:canvaschange="handleCanvasChange" />
       <TileOutput :tileData="$store.state.pixelMatrix" />
       <DataOutput />
     </div>
@@ -26,20 +26,19 @@ export default {
   // TODO: move styles to other components
   // TODO: Change class names in template
   name: 'app',
-  data:function(){
-    return{
-      selectedColor:'#113711',
-      colorPalleteShade: 3,
-     
-    }
-  },
 
   computed:{
     tileData(){
        return this.$store.state.pixelMatrix
+    },
+    selectedColor(){
+      return this.$store.state.selectedColor
+    },
+    selectedPallateData(){
+      return this.$store.state.selectedPalleteValue
     }
   },
-  
+
   components:{
     colorPallete, 
     TileCanvas,
@@ -50,23 +49,15 @@ export default {
   },
 
   methods:{
-    changeColor: function(color, shade){
-      this.selectedColor = color;
-      this.colorPalleteShade = shade;
-    },
     handleCanvasChange: function(e){
       let tileData = this.tileData;
       let modifiedRow = tileData[e.row].slice(0);
 
-      modifiedRow[e.col] = this.colorPalleteShade;
+      modifiedRow[e.col] = this.selectedPallateData;
       this.$set(tileData,e.row,modifiedRow);
       this.$store.commit('updateMatrix',tileData);
       this.$store.commit('convertPixelMatrix');
     },
-    clearCanvas(){
-      
-    }
-  
   },
   mounted() {
     let data = Array(8).fill(null).map(()=>Array(8).fill(0));

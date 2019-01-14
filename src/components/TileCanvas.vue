@@ -22,8 +22,10 @@
   
   export default{
     name: 'TileCanvas',
-    props: {
-      pixelColor: String
+    computed:{
+      pixelColor(){
+        return this.$store.state.selectedColor
+      }
     },
     data(){
       return{

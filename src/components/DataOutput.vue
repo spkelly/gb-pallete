@@ -4,7 +4,7 @@
       <h2 class="header__sub">Pixel Data</h2>
     </div>
     <div class="data__output">
-      <p class="data__output-row" v-for="(data,index) in convertedPixelData">
+      <p class="data__output-row" v-for="(data,index) in convertedPixelData" v-bind:key="index">
         ${{data}}
       </p>
     </div>

@@ -36,7 +36,7 @@
         let palleteSelection = this.pallete[index];
         this.activeIndex = index;
         this.$set(this.pallete,index,palleteSelection);
-        this.$emit('changecolor',palleteSelection.color,index);
+        this.$store.dispatch('changeColor',{color:palleteSelection.color,index});
       }
     }
   }
