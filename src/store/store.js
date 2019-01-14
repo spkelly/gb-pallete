@@ -54,7 +54,7 @@ const store = {
       state.currentImageData = imageData;
     },
 
-    changeFileType(state,fileType){
+    changeFileType(state){
       state.fileType = !state.fileType;
     }
 

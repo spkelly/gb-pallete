@@ -2,7 +2,7 @@
   <section >
   <div class="section-header">
       <h2 class="header__sub">
-      <input type="text" class="file_name" placeholder="Untitled Tile (click to change title)"></input>
+      <input type="text" class="file_name" placeholder="Untitled Tile (click to change title)"/>
       </h2>
     </div>
   <div class="canvas_holder">
