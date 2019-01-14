@@ -1,8 +1,11 @@
 <template>
   <div id="app">
-    Gameboy Tile Generator
-    <colorPallete />
+    <header id="header">
+      <h1 class="heading__primary">Gameboy Tile Generator</h1>
+    </header>
+   
     <div class="flex-row">
+       <colorPallete />
       <TileCanvas  v-on:canvaschange="handleCanvasChange" />
       <TileOutput :tileData="$store.state.pixelMatrix" />
       <DataOutput />
@@ -68,10 +71,18 @@ export default {
 
 <style>
 
-.file__controls{
-  margin-left: 12px;
+.heading__primary{
+  margin:0;
+  font-size: 64px;
+}
+.heading__sub{
+  font-size:12px;
+}
+#header{
+  margin-bottom: 80px;
 }
 #app {
+  min-width: 960px;
   position: absolute;
   text-align: center;
   bottom: 0px;
@@ -126,6 +137,7 @@ export default {
 .flex-row {
   display: flex;
   justify-content: center;
+
 }
 
 

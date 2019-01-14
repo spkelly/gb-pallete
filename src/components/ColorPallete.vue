@@ -48,26 +48,27 @@
   .active{border-color: gold !important;}
 
   #pallete {
-  padding: 24px 0;
-  justify-content: space-around;
   position: relative;
+
+  align-self: center;
+  height: 200px;
   display: flex;
-  margin: 20px auto;
-  width: 512px;
+  justify-content: center;
+  flex-direction: column;
   border-top: 8px solid #9eb737;
   border-bottom: 8px solid #9eb737;
   background-color: #ccdba4;
 }
 
 .pallete__color {
+  cursor: pointer;
   width: 40px;
   height: 40px;
   border: 4px solid black;
   background-color: black;
 }
 
-#pallete:before,
-#pallete:after {
+#pallete:before {
   content: '';
   top: 0;
   width: 8px;
@@ -80,8 +81,5 @@
   left: -8px;
 }
 
-#pallete:after {
-  right: -8px;
-}
 
 </style>

@@ -96,7 +96,7 @@
     cursor: pointer;
     height: 500px;
     border: 8px solid #9eb737;
-    margin: 0 10px;
+    margin-right:10px;
     position:relative;
   }
   #can {
