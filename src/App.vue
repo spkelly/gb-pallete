@@ -19,7 +19,6 @@ import colorPallete from './components/ColorPallete.vue';
 import TileCanvas from './components/TileCanvas.vue';
 import TileOutput from './components/TileOutput.vue';
 import DownloadButton from './components/DownloadButton.vue';
-import FileControls from './components/FileControls.vue';
 import DataOutput from './components/DataOutput.vue';
 
 export default {
@@ -40,6 +39,16 @@ export default {
        return this.$store.state.pixelMatrix
     }
   },
+  
+  components:{
+    colorPallete, 
+    TileCanvas,
+    TileOutput,
+    DownloadButton,
+    DataOutput
+
+  },
+
   methods:{
     changeColor: function(color, shade){
       this.selectedColor = color;
@@ -57,15 +66,7 @@ export default {
     clearCanvas(){
       
     }
-  },
-  components:{
-    colorPallete, 
-    TileCanvas,
-    TileOutput,
-    FileControls,
-    DownloadButton,
-    DataOutput
-
+  
   },
   mounted() {
     let data = Array(8).fill(null).map(()=>Array(8).fill(0));
@@ -87,7 +88,7 @@ export default {
   top: 0px;
   right: 0px;
   left: 0px;
-  background-color: #333333;
+  background-color: #380d0d;
   color: #9eb737;
   font-family: 'VT323', monospace;
 }
