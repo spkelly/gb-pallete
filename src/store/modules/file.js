@@ -1,23 +1,25 @@
+import {SET_FILE_TYPE,SET_FILE_NAME} from '../types';
+
 const state = {
   fileName:"TileData",
   fileType:"C"
 }
 
 
-const actions = {
-  setFileType(state, newFileType){
+const mutations = {
+  [SET_FILE_TYPE] (state, newFileType){
     state.fileType = newFileType;
   },
 
-  setFileName(state, newFileName){
+  [SET_FILE_NAME](state, newFileName){
     state.fileName = newFileName;
   }
 }
 
-const mutations = {
+const actions = {
   changeFileName(state,fileName){
     if(fileName.length > 3){
-      state.commit('setFileName', fileName)
+      state.commit(SET_FILE_NAME, fileName)
     }
   }
 }

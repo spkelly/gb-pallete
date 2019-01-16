@@ -17,6 +17,7 @@
 
 
 <script>
+import {SET_FILE_TYPE} from '../store/types';
   export default {
     name:"FileControls",
     data(){
@@ -27,7 +28,7 @@
     },
     methods:{
       changeFileType(){
-        this.$store.commit("changeFileType", this.selected);
+        this.$store.commit(SET_FILE_TYPE, this.selected);
       }
     }
   }

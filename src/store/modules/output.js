@@ -1,4 +1,5 @@
 import {convertPixelMatrix} from '../../services/ConverterServices';
+import { SET_PIXEL_DATA, SET_IMAGE_DATA, SET_CONVERTED_PIXEL_DATA, GET_CONVERTED_PIXEL_DATA } from '../types';
 
 
     //TODO: initialize convertedpixelData so its not just a bunch of 0s
@@ -9,19 +10,21 @@ const state = {
 }
 
 const mutations = {
-  setPixelMatrix(state, newMatrix){
+  [SET_PIXEL_DATA](state, newMatrix){
     state.pixelMatrix = newMatrix;
   },
 
-  setImageData(state, newImageData){
+  [SET_IMAGE_DATA](state, newImageData){
     state.imageData = newImageData;
   },
-
-
+  
+  [SET_CONVERTED_PIXEL_DATA](state, pixelData){
+    state.convertedPixelData = pixelData;
+  }
 }
 
 const getters = {
-  getConvertedPixelData(state){
+  [GET_CONVERTED_PIXEL_DATA](state){
     return convertPixelMatrix(state.pixelMatrix);
   }
   
@@ -30,22 +33,26 @@ const getters = {
 const actions = {
   //TODO: Rename to updateOutput
   updateOutput({commit, getters}, newMatrix){
-    commit("setPixelMatrix",newMatrix);
+    
     let canvas = getters.getCanvas;
     let ctx = canvas.getContext("2d");
     let imageData = ctx.getImageData(0,0,500,500);
-    console.log(imageData);
-    commit("setImageData",imageData);
+    
+    commit(SET_PIXEL_DATA, newMatrix);
+    commit(SET_IMAGE_DATA, imageData);
     // modify currentImageData
   },
+
   convertPixelMatrix({commit,getters}){
     let convertedPixelData = getters.getConvertedPixelData;
-    commit(("setConvertedPixelData",convertedPixelData));
+    commit((SET_CONVERTED_PIXEL_DATA, convertedPixelData));
   },
+
   resetMatrix({commit}){
-    const emptyTileData = Array(8).fill(null).map(()=>Array(8).fill(0));
-    commit("updateMatrix",emptyTileData);
+    const emptyPixelMatrix = Array(8).fill(null).map(()=>Array(8).fill(0));
+    commit(SET_PIXEL_DATA,emptyPixelMatrix);
   },
+
 }
 
 

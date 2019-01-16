@@ -20,10 +20,11 @@ export default {
 
   methods:{
     download(){
-      let state = this.$store.state; 
-      let pixelMatrix = convertPixelMatrix(state.pixelMatrix);
+      console.log(this)
+      let pixelMatrix = this.$store.getters.getConvertedPixelData
 
-      if(state.fileType){
+
+      if(this.$store.state.File.fileType){
         exportToC(pixelMatrix.flat(2));
       }
       else{

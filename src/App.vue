@@ -59,7 +59,6 @@ export default {
       modifiedRow[e.col] = this.selectedPallateData;
       this.$set(tileData,e.row,modifiedRow);
       this.$store.dispatch('updateOutput',tileData);
-      // this.$store.commit('convertPixelMatrix');
     },
   },
   mounted() {
