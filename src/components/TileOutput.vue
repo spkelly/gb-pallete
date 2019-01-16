@@ -39,7 +39,7 @@ export default {
 
   computed: {
     pixelMatrix(){
-      return this.$store.state.pixelMatrix;
+      return this.$store.state.Output.pixelMatrix;
     }
   }
 }

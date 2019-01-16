@@ -15,7 +15,7 @@
 
     computed:{
       currentImageData(){
-        return this.$store.state.currentImageData
+        return this.$store.state.Output.imageData
       }
     },
     watch:{

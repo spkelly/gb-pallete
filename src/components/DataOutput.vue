@@ -21,7 +21,7 @@ export default{
   name: "DataOutput",
   computed: {
     convertedPixelData(){
-      return this.$store.state.convertedPixelData;
+      return this.$store.getters.getConvertedPixelData
     }
   },
     components:{

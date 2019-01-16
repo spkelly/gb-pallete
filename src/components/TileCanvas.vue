@@ -24,8 +24,8 @@
     name: 'TileCanvas',
     computed:{
       pixelColor(){
-        return this.$store.state.selectedColor
-      }
+        return this.$store.state.Palette.selectedColor
+      },
     },
     data(){
       return{

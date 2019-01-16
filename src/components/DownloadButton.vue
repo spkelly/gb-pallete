@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="buttonHolder">
-      <div class="pixel__button-vert" v-on:click="$store.dispatch('clearGrid')">
+      <div class="pixel__button-vert" v-on:click="$store.dispatch('reset')">
         clear grid
       </div>
       <div class="pixel__button-vert" v-on:click="download()" >

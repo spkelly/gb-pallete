@@ -32,13 +32,13 @@ export default {
 
   computed:{
     tileData(){
-       return this.$store.state.pixelMatrix
+       return this.$store.state.Output.pixelMatrix
     },
     selectedColor(){
-      return this.$store.state.selectedColor
+      return this.$store.state.Palette.selectedColor
     },
     selectedPallateData(){
-      return this.$store.state.selectedPalleteValue
+      return this.$store.state.Palette.selectedPalleteValue
     }
   },
 
@@ -58,13 +58,14 @@ export default {
 
       modifiedRow[e.col] = this.selectedPallateData;
       this.$set(tileData,e.row,modifiedRow);
-      this.$store.commit('updateMatrix',tileData);
-      this.$store.commit('convertPixelMatrix');
+      this.$store.dispatch('updateOutput',tileData);
+      // this.$store.commit('convertPixelMatrix');
     },
   },
   mounted() {
     let data = Array(8).fill(null).map(()=>Array(8).fill(0));
-    this.$store.dispatch('resetMatrix',data);
+    this.$store.dispatch('updateOutput',data);
+    console.log(this.$store);
   },
 }
 </script>
@@ -90,7 +91,7 @@ export default {
   top: 0px;
   right: 0px;
   left: 0px;
-  background-color: #380d0d;
+  background-color: #270e24;
   color: #9eb737;
   font-family: 'VT323', monospace;
 }

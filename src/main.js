@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import App from './App.vue';
-import storeTemplate from './store/store';
+import storeTemplate from './store/index';
 Vue.use(Vuex);
 let store = new Vuex.Store(storeTemplate);
 
