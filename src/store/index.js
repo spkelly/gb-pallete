@@ -2,6 +2,8 @@ import Canvas from './modules/canvas';
 import File from './modules/file';
 import Palette from './modules/palette';
 import Output from './modules/output';
+import {RESET, CLEAR_CANVAS, UPDATE_OUTPUT} from './types';
+
 const store = {
   modules:{
     Canvas,
@@ -9,11 +11,12 @@ const store = {
     Palette,
     Output
   },
+  
   actions:{
-    reset({dispatch}){
+    [RESET]({dispatch}){
       const emptyTileData = Array(8).fill(null).map(()=>Array(8).fill(0));     
-      dispatch("clearCanvas");
-      dispatch("updateOutput",emptyTileData);
+      dispatch(CLEAR_CANVAS);
+      dispatch(UPDATE_OUTPUT, emptyTileData);
     }
   }
 };

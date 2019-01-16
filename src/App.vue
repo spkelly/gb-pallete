@@ -101,14 +101,6 @@ export default {
   justify-content: center;
   font-size: 32px;
 }
-/*
-.buttonHolder-vert{
-  display: flex;
-  flex-direction:column;
-  justify-content: center;
-  font-size: 32px;
-}
-*/
 
 .pixel__button-horiz {
   font-size: 32px;
@@ -121,18 +113,6 @@ export default {
   align-items: center;
   justify-content: center;
 }
-/*
-.pixel__button-vert {
-  font-size: 32px;
-  color: #113711;
-  background-color: #9eb737;
-  width: 200px;
-  height: 100px;
-  margin: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
 
 .flex-row {
   display: flex;

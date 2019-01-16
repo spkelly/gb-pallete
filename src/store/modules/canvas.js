@@ -23,9 +23,10 @@ const actions = {
     let ctx = getters.getCanvas.getContext("2d");
     ctx.clearRect(0,0,state.canvas.width, state.canvas.height);
   },
+
   [INIT_CANVAS]({commit},canvas){
     commit(SET_CANVAS,canvas);
-  },
+  }
 }
 
 export default {
