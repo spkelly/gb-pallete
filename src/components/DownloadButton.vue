@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import {exportToC, exportToASM} from '../services/DownloaderServices';
-import {convertPixelMatrix} from '../services/ConverterServices';
+import { exportToC, exportToASM } from '../services/DownloaderServices';
+import { convertPixelMatrix } from '../services/ConverterServices';
 
 export default {
   name: "DownloadButton",
@@ -22,7 +22,6 @@ export default {
     download(){
       console.log(this)
       let pixelMatrix = this.$store.getters.getConvertedPixelData
-
 
       if(this.$store.state.File.fileType){
         exportToC(pixelMatrix.flat(2));
@@ -33,7 +32,6 @@ export default {
     }
   }
 }
-
 
 </script>
 
@@ -55,6 +53,4 @@ export default {
     align-items: center;
     justify-content: center;
   }
-
-
 </style>

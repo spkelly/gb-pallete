@@ -3,9 +3,8 @@
     <header id="header">
       <h1 class="heading__primary">Gameboy Tile Generator</h1>
     </header>
-   
     <div class="flex-row">
-       <colorPallete />
+      <colorPallete />
       <TileCanvas  v-on:canvaschange="handleCanvasChange" />
       <TileOutput :tileData="$store.state.pixelMatrix" />
       <DataOutput />
@@ -13,7 +12,6 @@
     <div class="flex-row">
       <DownloadButton />
     </div>
-
   </div>
 </template>
 
@@ -25,22 +23,11 @@ import DownloadButton from './components/DownloadButton.vue';
 import DataOutput from './components/DataOutput.vue';
 
 export default {
-  // TODO: sepearate into smaller components
   // TODO: move styles to other components
   // TODO: Change class names in template
   name: 'app',
 
-  computed:{
-    tileData(){
-       return this.$store.state.Output.pixelMatrix
-    },
-    selectedColor(){
-      return this.$store.state.Palette.selectedColor
-    },
-    selectedPallateData(){
-      return this.$store.state.Palette.selectedPalleteValue
-    }
-  },
+  computed:mapState(['pixelMatrix', 'selectedColor', 'selectedPalleteValue']),
 
   components:{
     colorPallete, 
@@ -48,7 +35,6 @@ export default {
     TileOutput,
     DownloadButton,
     DataOutput
-
   },
 
   methods:{
@@ -70,7 +56,6 @@ export default {
 </script>
 
 <style>
-
 .heading__primary{
   margin:0;
   font-size: 64px;
@@ -95,13 +80,6 @@ export default {
   font-family: 'VT323', monospace;
 }
 
-
-.buttonHolder {
-  display: flex;
-  justify-content: center;
-  font-size: 32px;
-}
-
 .pixel__button-horiz {
   font-size: 32px;
   color: #113711;
@@ -119,7 +97,4 @@ export default {
   justify-content: center;
 
 }
-
-
-
 </style>

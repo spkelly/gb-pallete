@@ -37,10 +37,8 @@
 
 
 <style lang="css">
-
   .mini_output{
     width:100px;
     height:100px;
   }
-  
 </style>

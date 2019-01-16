@@ -10,7 +10,6 @@
     </div>
     <FileControls /> 
   </section>
-
 </template>
 
 
@@ -27,7 +26,6 @@ export default{
     components:{
     FileControls
   }
-
 
 }
 </script>

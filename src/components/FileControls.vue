@@ -18,20 +18,21 @@
 
 <script>
 import {SET_FILE_TYPE} from '../store/types';
-  export default {
-    name:"FileControls",
-    data(){
-      return({
-        selected: 'C'
-      })
-      
-    },
-    methods:{
-      changeFileType(){
-        this.$store.commit(SET_FILE_TYPE, this.selected);
-      }
+
+export default {
+  name:"FileControls",
+  data(){
+    return({
+      selected: 'C'
+    })
+    
+  },
+  methods:{
+    changeFileType(){
+      this.$store.commit(SET_FILE_TYPE, this.selected);
     }
   }
+}
 </script>
 
 
