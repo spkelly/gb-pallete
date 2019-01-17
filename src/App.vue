@@ -21,13 +21,18 @@ import TileCanvas from './components/TileCanvas.vue';
 import TileOutput from './components/TileOutput.vue';
 import DownloadButton from './components/DownloadButton.vue';
 import DataOutput from './components/DataOutput.vue';
+import {mapState} from 'vuex';
 
 export default {
   // TODO: move styles to other components
   // TODO: Change class names in template
   name: 'app',
 
-  computed:mapState(['pixelMatrix', 'selectedColor', 'selectedPalleteValue']),
+  computed:mapState({
+    tileData: state => state.Output.pixelMatrix,
+    selectedColor: state => state.Palette.selectedColor,
+    selectedPallateData: state =>  state.Palette.selectedPalleteValue
+  }),
 
   components:{
     colorPallete, 
@@ -75,21 +80,9 @@ export default {
   top: 0px;
   right: 0px;
   left: 0px;
-  background-color: #270e24;
+ /* background-color: #270e24;*/
   color: #9eb737;
   font-family: 'VT323', monospace;
-}
-
-.pixel__button-horiz {
-  font-size: 32px;
-  color: #113711;
-  background-color: #9eb737;
-  width: 100px;
-  height: 200px;
-  margin: 20px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .flex-row {
