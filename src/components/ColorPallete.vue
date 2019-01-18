@@ -55,7 +55,7 @@ export default {
 
   align-self: center;
   height: 200px;
-  display: flex;
+  display: none;
   justify-content: center;
   flex-direction: column;
   border-top: 8px solid #9eb737;

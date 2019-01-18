@@ -9,7 +9,6 @@
       <label for="">C </label>
       <input name="filetype" type="radio" value="asm" v-model="selected" v-on:change="changeFileType">
       <label for="">ASM</label>
-      
     </form>
   </div>
   </section>
