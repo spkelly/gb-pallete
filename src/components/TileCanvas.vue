@@ -1,10 +1,4 @@
 <template>
-  <section >
-    <div class="section-header">
-      <h2 class="header__sub">
-        <input type="text" class="file_name" placeholder="Untitled Tile (click to change title)"/>
-      </h2>
-    </div>
     <div class="canvas_holder">
       <canvas id="viewport" ref="viewport"></canvas>
       <canvas id="can" ref="canvas" 
@@ -13,7 +7,6 @@
         v-on:mousemove="handleMouseMove"
       ></canvas>
     </div>
-  </section>
 </template>
 
 <script>
@@ -53,8 +46,11 @@ export default{
     },
     
     getPaintLocation(e){
-      let pos = CanvasHelper.getMousePosition(e);
+      console.log("I am here am checking mouse position");
+      let pos = CanvasHelper.getMousePosition(this.canvas,e);
+      console.log("I am here am checking Pixel Coordinates my mouse position is", pos);
       let coords = CanvasHelper.getPixelCoordinates(pos);
+      console.log("I am here am checking mouse position");
       let offset = CanvasHelper.getPixelOffset(coords);
       return {coords,offset};
     },
@@ -70,8 +66,6 @@ export default{
     let vp = this.$refs.viewport;
     let vpCTX = vp.getContext("2d");
     CanvasHelper.drawGrid(vp,vpCTX);
-    this.canvas.width = 500;
-    this.canvas.height = 500;
     this.ctx = this.$refs.canvas.getContext("2d");
     this.$store.dispatch("initializeCanvas",this.canvas);
   }
@@ -79,6 +73,9 @@ export default{
 </script>
 
 <style lang="css">
+  .section__header{
+    display: none;
+  }
   .file_name{
     text-align: center;
     width: 80%;
@@ -93,19 +90,21 @@ export default{
     color:#9eb737;
     opacity: 1;
   }
+
   .canvas_holder{
     cursor: pointer;
-    height: 500px;
-    border: 8px solid #9eb737;
-    margin-right:10px;
+    height: 300px;
+    width: 300px;
+    margin:0 auto;
     position:relative;
   }
+
   #can {
     z-index: 0;
     position: absolute;
     left: 0px;
-    height: 500px;
-    width: 500px;
+    height: 300px;
+    width: 300px;
   }
 
   #viewport{
