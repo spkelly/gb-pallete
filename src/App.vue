@@ -5,9 +5,8 @@
     </header>
     <div class="flex-row">
       <colorPallete />
-      <TileCanvas  v-on:canvaschange="handleCanvasChange" />
-      <TileOutput :tileData="$store.state.pixelMatrix" />
-      <DataOutput />
+      <Console v-on:canvaschange="handleCanvasChange" />
+      <Output />
     </div>
     <div class="flex-row">
       <DownloadButton />
@@ -18,9 +17,9 @@
 <script>
 import colorPallete from './components/ColorPallete.vue';
 import TileCanvas from './components/TileCanvas.vue';
-import TileOutput from './components/TileOutput.vue';
 import DownloadButton from './components/DownloadButton.vue';
-import DataOutput from './components/DataOutput.vue';
+import Output from './components/Output';
+import Console from './components/console/Console';
 import {mapState} from 'vuex';
 
 export default {
@@ -35,11 +34,11 @@ export default {
   }),
 
   components:{
+    Output,
     colorPallete, 
     TileCanvas,
-    TileOutput,
     DownloadButton,
-    DataOutput
+    Console
   },
 
   methods:{
@@ -61,17 +60,59 @@ export default {
 </script>
 
 <style>
+/* 
+.gameboy{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color:black;
+  height: 1400px;
+  border-bottom-right-radius:110px;
+  border-bottom-left-radius: 40px;
+}
+
+.gameboy__top{
+  height: 60px;
+}
+
+.gameboy__screen{
+  display: flex;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius:30px;
+  border-bottom-right-radius:110px;
+  margin-right: 44px;
+  padding-right:100px;
+  margin-left:44px;
+  padding-top: 40px;
+  padding-bottom: 100px;
+  background-color:green;
+}
+
+.gameboy__light{
+  border-radius: 100%;
+  align-self: center;
+  margin: 0 30px;
+  height: 20px;
+  width: 20px;
+  background-color:red;
+} */
+
 .heading__primary{
   margin:0;
   font-size: 64px;
 }
+
 .heading__sub{
   font-size:12px;
 }
+
 #header{
   margin-bottom: 80px;
 }
+
 #app {
+  background-color: #3d3d3d;
+  height:2400px;
   min-width: 960px;
   position: absolute;
   text-align: center;
