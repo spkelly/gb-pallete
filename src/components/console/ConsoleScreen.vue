@@ -24,23 +24,29 @@ export default {
 
 <style>
 
-.console__screen{ 
-  height: 1500px;
-  display: flex;
+.console__screen{
+  position: relative;
   border-radius: 30px 30px 110px 30px;
-  margin-right: 80px;
-  margin-left:80px;
-  padding-right:130px;
-  padding-top: 60px;
+  max-width: fit-content;
+  padding: 40px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-bottom: 50px;
+  margin-right: 40px;
+  margin-left:40px;
+  /* padding-right:130px;
+  padding-top: 60px; */
   background-color:#625F70;
 }
 
 .console__light{
-  height: 20px;
-  width: 20px;
+  top:0px;
+  left: 0px;
+  position: absolute;
+  height: 3%;
+  width: 3%;
   border-radius: 100%;
   align-self: center;
-  margin: 0 50px;
   background-color:red;
 }
 

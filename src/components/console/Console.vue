@@ -48,29 +48,29 @@ export default {
 
 .console__speaker{
   position: absolute;
-  right: 20px;
-  bottom: 50px;
-  transform: rotate(-32deg);
-  width: 280px;
+  right: 8px;
+  bottom: 40px;
+  transform: rotate(-34deg);
+  width: 200px;
 }
 
 .console__speaker-element{
   display: inline-block;
-  margin:0 14px;
+  margin:0 10px;
   border-radius: 20%;
-  width: 16px;
-  height:140px;
-  background-color: #868277;
+  width: 10px;
+  height:100px;
+  background-color:#8A8777;
 }
 
 .console__shadow{
   position: absolute;
   right:0;
   bottom:0;
-  width:320px;
-  height:200px;
+  width:240px;
+  height:180px;
   background-color: #AAA79C;
-  clip-path: polygon(0 100%, 100% 100%, 100% 0%);
+  clip-path: polygon(10% 100%, 100% 100%, 100% 15%);
 }
 
 #console{
@@ -81,18 +81,18 @@ export default {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background-color:#CBCBC1;
-  height: 1450px;
-  border-bottom-right-radius:180px;
+  height: 900px;
+  border-bottom-right-radius:130px;
   border-bottom-left-radius: 40px;
 }
 
 .console__top{
-    height: 160px;
+    min-height: 6%;
 }
 .console__bottom{
   height:100%;
   flex-grow: 1;
-  margin-top: 200px;
+  margin-top: 80px;
 }
 
 .console__buttons{
@@ -104,19 +104,20 @@ export default {
 
 .console__buttons-dpad{
   
-  margin-right: 250px;
-  width: 225px;
-  height: 225px;
-  margin-left: 90px;
+  margin-right:160px;
+  margin-left: 40px;
+  width: 130px;
+  height: 130px;
   position: relative;
 }
 .console__buttons-face{
   position: relative;
-  width: 280px;
-  height: 230px;
+  width: 180px;
+  height: 130px;
 }
 
 .console__buttons-dpad::before{
+  border-radius: 8px;
   display: block;
   position: absolute;
   height: 35%;
@@ -127,6 +128,7 @@ export default {
 }
 
 .console__buttons-dpad::after{
+   border-radius: 8px;
   position: absolute;
   display: block;
   height: 35%;
@@ -141,20 +143,20 @@ export default {
   position: absolute;
   top: 0px;
   right: 0px;
-  width:120px;
-  height:120px;
+  width:75px;
+  height:75px;
   border-radius: 100%;
   background-color: #AC2D5E;
 
 }
 
 .console__buttons-b{
-  bottom: 40px;
-  left: 10px;
+  bottom: 10px;
+  left: 0px;
   position: absolute;
   margin: 0 10px;
-  width:120px;
-  height:120px;
+  width:75px;
+  height:75px;
   border-radius: 100%;
   background-color: #AC2D5E;
 }
@@ -168,18 +170,20 @@ export default {
 
 .console__buttons-start{
   align-self: center;
-  margin-top: 50px;
-  height:30px;
-  width: 120px;
+  margin-top: 40px;
+  margin-right: 30px;
+  margin-left: -70px;
+  height:18px;
+  width: 70px;
   background-color: #867E8D;
   border-radius: 30%;
   transform: rotate(-30deg);
 }
 .console__buttons-select{
   align-self: center;
-  margin-top: 50px;
-  height:30px;
-  width: 120px;
+  margin-top: 40px;
+  height:18px;
+  width: 70px;
   background-color: #867E8D;
   border-radius: 30%;
   transform: rotate(-30deg);
