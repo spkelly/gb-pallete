@@ -1,5 +1,5 @@
 import { SET_CANVAS, CLEAR_CANVAS, INIT_CANVAS, GET_CANVAS } from "../types";
-
+import {GRID_HEIGHT,GRID_WIDTH} from '../../services/constants';
 const state = {
   canvas:{}
 }
@@ -7,8 +7,8 @@ const state = {
 const mutations = {
   [SET_CANVAS](state,canvas){
     state.canvas = canvas;
-    state.canvas.width = 500;
-    state.canvas.height = 500;
+    state.canvas.width = GRID_WIDTH;
+    state.canvas.height = GRID_HEIGHT;
   }
 }
 
