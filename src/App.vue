@@ -1,9 +1,13 @@
 <template>
   <div id="app">
     <header id="header">
-      <h1 class="heading__primary">Gameboy Tile Generator</h1>
+      <!-- <h1 class="heading__primary">Gameboy Tile Generator</h1> -->
     </header>
     <div class="flex-row">
+      <section class="description">
+        <p>This is a Gameboy Tile Generator.</p>
+        <p>More description to come...</p>
+      </section>
       <colorPallete />
       <Console v-on:canvaschange="handleCanvasChange" />
       <Output />
@@ -60,6 +64,10 @@ export default {
 </script>
 
 <style>
+.description{
+  width: 20%;
+  margin: 0 5%;
+}
 /* 
 .gameboy{
   border-top-left-radius: 20px;
@@ -128,7 +136,6 @@ export default {
 
 .flex-row {
   display: flex;
-  justify-content: center;
 
 }
 </style>
