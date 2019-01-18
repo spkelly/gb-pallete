@@ -66,44 +66,8 @@ export default {
 <style>
 .description{
   width: 20%;
-  margin: 0 5%;
+  margin-right:3%;
 }
-/* 
-.gameboy{
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  background-color:black;
-  height: 1400px;
-  border-bottom-right-radius:110px;
-  border-bottom-left-radius: 40px;
-}
-
-.gameboy__top{
-  height: 60px;
-}
-
-.gameboy__screen{
-  display: flex;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  border-bottom-left-radius:30px;
-  border-bottom-right-radius:110px;
-  margin-right: 44px;
-  padding-right:100px;
-  margin-left:44px;
-  padding-top: 40px;
-  padding-bottom: 100px;
-  background-color:green;
-}
-
-.gameboy__light{
-  border-radius: 100%;
-  align-self: center;
-  margin: 0 30px;
-  height: 20px;
-  width: 20px;
-  background-color:red;
-} */
 
 .heading__primary{
   margin:0;
@@ -136,6 +100,7 @@ export default {
 
 .flex-row {
   display: flex;
+  justify-content: center;
 
 }
 </style>
