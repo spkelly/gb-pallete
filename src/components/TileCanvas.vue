@@ -46,12 +46,10 @@ export default{
     },
     
     getPaintLocation(e){
-      console.log("I am here am checking mouse position");
       let pos = CanvasHelper.getMousePosition(this.canvas,e);
-      console.log("I am here am checking Pixel Coordinates my mouse position is", pos);
       let coords = CanvasHelper.getPixelCoordinates(pos);
-      console.log("I am here am checking mouse position");
       let offset = CanvasHelper.getPixelOffset(coords);
+      console.log("Offset:", offset);
       return {coords,offset};
     },
 
@@ -93,8 +91,6 @@ export default{
 
   .canvas_holder{
     cursor: pointer;
-    height: 300px;
-    width: 300px;
     margin:0 auto;
     position:relative;
   }
@@ -103,8 +99,6 @@ export default{
     z-index: 0;
     position: absolute;
     left: 0px;
-    height: 300px;
-    width: 300px;
   }
 
   #viewport{

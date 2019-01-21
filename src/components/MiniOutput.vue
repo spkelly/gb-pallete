@@ -27,8 +27,8 @@
     },
     mounted(){
       let canvas = this.$refs.mini_output;
-      canvas.width = 300;
-      canvas.height = 300;
+      canvas.width = 280;
+      canvas.height = 280;
       this.ctx = canvas.getContext("2d");
     }
   }
