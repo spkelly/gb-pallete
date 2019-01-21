@@ -72,7 +72,6 @@ export default{
 
 <style lang="css">
   .section__header{
-    display: none;
   }
   .file_name{
     text-align: center;

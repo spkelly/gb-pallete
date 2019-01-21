@@ -36,7 +36,6 @@ export default {
 
 <style>
   .buttonHolder {
-    display: none;
     justify-content: center;
     font-size: 32px;
   }
