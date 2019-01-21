@@ -4,7 +4,16 @@
     <ConsoleScreen v-on:canvaschange="handleCanvasChange"/>
     <div class="console__bottom">
       <div class="console__buttons">
-        <div class="console__buttons-dpad"></div>
+        <div class="console__buttons-dpad">
+          <div class="dpad__horiz">
+            <div class="dpad__right" @click="shiftRight"></div>
+            <div class="dpad__left" @click="shiftLeft"></div>
+          </div>
+          <div class="dpad__vert">
+            <div class="dpad__up" @click="shiftUp"></div>
+            <div class="dpad__down" @click="shiftDown"></div>
+          </div>
+        </div>
         <div class="console__buttons-face">
           <div class="console__buttons-a"></div>
           <div class="console__buttons-b"></div>
@@ -30,6 +39,8 @@
 
 <script>
 import ConsoleScreen from './ConsoleScreen';
+import {mapActions} from 'vuex';
+import { SHIFT_CANVAS_LEFT, SHIFT_CANVAS_RIGHT, SHIFT_CANVAS_UP, SHIFT_CANVAS_DOWN } from '../../store/types';
 export default {
   name:"Console",
   components:{
@@ -38,7 +49,12 @@ export default {
   methods:{
     handleCanvasChange(coords){
       this.$emit('canvaschange', coords);
-    }
+    },
+    ...mapActions({
+      shiftLeft: SHIFT_CANVAS_LEFT,
+      shiftRight: SHIFT_CANVAS_RIGHT,
+      shiftUp: SHIFT_CANVAS_UP,
+      shiftDown: SHIFT_CANVAS_DOWN})
   }
 }
 </script>
@@ -104,12 +120,80 @@ export default {
 
 
 .console__buttons-dpad{
-  
+
   margin-right:160px;
   margin-left: 40px;
   width: 130px;
   height: 130px;
   position: relative;
+  z-index: 2;
+}
+
+.dpad__horiz{
+  border-radius: 8px;
+  display: block;
+  position: absolute;
+  height: 35%;
+  width:100%;
+  top: 32%;
+  background-color: black;
+}
+
+.dpad__vert{
+  z-index: 100;
+   border-radius: 8px;
+  position: absolute;
+  height: 35%;
+  width:100%;
+  top: 33%;
+  content:'';
+  transform: rotate(90deg);
+  background-color:black;
+}
+.dpad__up{
+  cursor: pointer;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  top:0px;
+  position: absolute;
+  height:100%;
+  width:35%;
+
+}
+.dpad__right{
+  cursor: pointer;
+  width:35%;
+  height: 100%;
+  right:0px;
+  position: absolute;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+
+
+}
+
+.dpad__left{
+  cursor: pointer;
+  width:35%;
+  height: 100%;
+  left:0px;
+  position: absolute;
+  float: left;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+
+}
+
+.dpad__down{
+  cursor: pointer;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  position: absolute;
+  bottom:0px;
+  right: 0px;
+  width:35%;
+  height: 100%;
+
 }
 .console__buttons-face{
   position: relative;
@@ -117,28 +201,7 @@ export default {
   height: 130px;
 }
 
-.console__buttons-dpad::before{
-  border-radius: 8px;
-  display: block;
-  position: absolute;
-  height: 35%;
-  width:100%;
-  content:'';
-  top: 32%;
-  background-color: black;
-}
 
-.console__buttons-dpad::after{
-   border-radius: 8px;
-  position: absolute;
-  display: block;
-  height: 35%;
-  width:100%;
-  top: 33%;
-  content:'';
-  transform: rotate(90deg);
-  background-color: black;
-}
 
 .console__buttons-a{
   position: absolute;
