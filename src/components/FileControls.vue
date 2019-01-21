@@ -1,10 +1,13 @@
 <template>
   <section>
   <div class="section__header">
-    <h2 class="header__sub">File Type</h2>
+    <label class="header__sub">Tile Name:</label>
+    <input type="text"/><br>
+   
   </div>
   <div class="file__selection-holder" @click=changeFileType>
-      <div class="file__selector" v-bind:class="{toggled:isToggled}"></div>
+     <label class="header__sub">File Type:</label>
+    <div class="file__selector" v-bind:class="{toggled:isToggled}"></div>
     <div class="file__selection">C</div>
     <div class="file__selection">ASM</div>
   </div>
@@ -41,6 +44,12 @@ export default {
 
 
 <style lang="css">
+  input{
+    width:28%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #9eb737;
+  }
 
   .file__description{
     font-size: 24px;
@@ -59,16 +68,16 @@ export default {
     z-index: 1;
     box-sizing: border-box;
     position: absolute;
-    top:14px;
-    left:140px;
-    width: 80px;
-    height: 60px;
-    border:8px solid #9eb737;
+    top:18px;
+    left:200px;
+    width: 68px;
+    height: 50px;
+    border:4px solid #9eb737;
     transition: all .25s ease-in-out
   }
 
   .toggled{
-    transform: translateX(64px);
+    transform: translateX(60px);
   }
   .file__selection{
     display: inline-block;
@@ -76,7 +85,6 @@ export default {
     margin-left:14px;
     width: 50px;
     height: 40px;
-    text-align: center;
   }
 
 </style>
