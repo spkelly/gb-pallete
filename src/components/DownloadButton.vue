@@ -8,6 +8,7 @@
         generate data
       </div>
     </div>
+    
   </div>
 </template>
 
@@ -22,7 +23,7 @@ export default {
     download(){
       let pixelMatrix = this.$store.getters.getConvertedPixelData
 
-      if(this.$store.state.File.fileType){
+      if(this.$store.state.File.fileType == "C"){
         exportToC(pixelMatrix.flat(2));
       }
       else{
@@ -36,19 +37,17 @@ export default {
 
 <style>
   .buttonHolder {
-    justify-content: center;
+    margin-top:20px;
     font-size: 32px;
   }
   .pixel__button-vert {
+
     cursor: pointer;
     font-size: 32px;
     color: #113711;
     background-color: #9eb737;
-    width: 200px;
-    height: 60px;
+    padding: 10px;
     margin: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: inline;
   }
 </style>
