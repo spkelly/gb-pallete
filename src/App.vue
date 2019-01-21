@@ -3,6 +3,10 @@
     <header id="header">
       <!-- <h1 class="heading__primary">Gameboy Tile Generator</h1> -->
     </header>
+    <button @click="shiftLeft">Shift Left Test</button>
+    <button @click="shiftRight">Shift Right Test</button>
+    <button @click="shiftUp">Shift Up Test</button>
+    <button @click="shiftDown">Shift Down Test</button>
     <div class="flex-row">
       <section class="description">
         <p>This is a Gameboy Tile Generator.</p>
@@ -14,6 +18,7 @@
     </div>
     <div class="flex-row">
       <DownloadButton />
+      
     </div>
   </div>
 </template>
@@ -24,7 +29,8 @@ import TileCanvas from './components/TileCanvas.vue';
 import DownloadButton from './components/DownloadButton.vue';
 import Output from './components/Output';
 import Console from './components/console/Console';
-import {mapState} from 'vuex';
+import {mapState, mapActions} from 'vuex';
+import { shiftLeft } from './services/CanvasServices';
 
 export default {
   // TODO: move styles to other components
@@ -35,7 +41,8 @@ export default {
     tileData: state => state.Output.pixelMatrix,
     selectedColor: state => state.Palette.selectedColor,
     selectedPallateData: state =>  state.Palette.selectedPalleteValue
-  }),
+    })
+  ,
 
   components:{
     Output,
@@ -54,6 +61,8 @@ export default {
       this.$set(tileData,e.row,modifiedRow);
       this.$store.dispatch('updateOutput',tileData);
     },
+
+    ...mapActions(['shiftLeft','shiftRight','shiftUp','shiftDown'])
   },
   mounted() {
     let data = Array(8).fill(null).map(()=>Array(8).fill(0));
