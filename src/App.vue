@@ -31,6 +31,7 @@ import Output from './components/Output';
 import Console from './components/console/Console';
 import {mapState, mapActions} from 'vuex';
 import { shiftLeft } from './services/CanvasServices';
+import { UPDATE_OUTPUT } from './store/types';
 
 export default {
   // TODO: move styles to other components
@@ -59,14 +60,14 @@ export default {
 
       modifiedRow[e.col] = this.selectedPallateData;
       this.$set(tileData,e.row,modifiedRow);
-      this.$store.dispatch('updateOutput',tileData);
+      this.$store.dispatch(UPDATE_OUTPUT,tileData);
     },
 
     ...mapActions(['shiftLeft','shiftRight','shiftUp','shiftDown'])
   },
   mounted() {
     let data = Array(8).fill(null).map(()=>Array(8).fill(0));
-    this.$store.dispatch('updateOutput',data);
+    this.$store.dispatch(UPDATE_OUTPUT,data);
   },
 }
 </script>

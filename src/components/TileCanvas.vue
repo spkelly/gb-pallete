@@ -11,6 +11,7 @@
 
 <script>
 import * as CanvasHelper from '../services/CanvasServices'
+import { INIT_CANVAS } from '../store/types';
 
 export default{
   name: 'TileCanvas',
@@ -64,7 +65,7 @@ export default{
     let vpCTX = vp.getContext("2d");
     CanvasHelper.drawGrid(vp,vpCTX);
     this.ctx = this.$refs.canvas.getContext("2d");
-    this.$store.dispatch("initializeCanvas",this.canvas);
+    this.$store.dispatch(INIT_CANVAS,this.canvas);
   }
 }
 </script>

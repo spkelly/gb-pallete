@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="buttonHolder">
-      <div class="pixel__button-vert" v-on:click="$store.dispatch('reset')">
+      <div class="pixel__button-vert" v-on:click="$store.dispatch(RESET)">
         clear grid
       </div>
       <div class="pixel__button-vert" v-on:click="download()" >
@@ -14,7 +14,7 @@
 <script>
 import { exportToC, exportToASM } from '../services/DownloaderServices';
 import { convertPixelMatrix } from '../services/ConverterServices';
-
+import { RESET } from '../store/types';
 export default {
   name: "DownloadButton",
 
