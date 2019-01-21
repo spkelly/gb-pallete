@@ -1,24 +1,27 @@
 <template>
   <div id="app">
-    <header id="header">
-      <!-- <h1 class="heading__primary">Gameboy Tile Generator</h1> -->
-    </header>
-    <button @click="shiftLeft">Shift Left Test</button>
-    <button @click="shiftRight">Shift Right Test</button>
-    <button @click="shiftUp">Shift Up Test</button>
-    <button @click="shiftDown">Shift Down Test</button>
+    <!-- <header id="header">
+      <h1 class="heading__primary">Gameboy Tile Generator</h1> 
+    </header> -->
+    <button @click="shiftLeft">Shift Left</button>
+    <button @click="shiftRight">Shift Right</button>
+    <button @click="shiftUp">Shift Up</button>
+    <button @click="shiftDown">Shift Down</button>
     <div class="flex-row">
       <section class="description">
-        <p>This is a Gameboy Tile Generator.</p>
-        <p>More description to come...</p>
+
+        <h1 class="heading__primary">This is a Gameboy Tile Generator.</h1>
+        <h1 class="heading__primary">More description to come...</h1>
+        <FileControls /> 
+        <div>
+          <DownloadButton />
+        </div>
       </section>
       <colorPallete />
       <Console v-on:canvaschange="handleCanvasChange" />
       <Output />
     </div>
-    <div class="flex-row">
-      <DownloadButton />
-    </div>
+
   </div>
 </template>
 
@@ -26,6 +29,7 @@
 import colorPallete from './components/ColorPallete.vue';
 import TileCanvas from './components/TileCanvas.vue';
 import DownloadButton from './components/DownloadButton.vue';
+import FileControls from './components/FileControls';
 import Output from './components/Output';
 import Console from './components/console/Console';
 import {mapState, mapActions} from 'vuex';
@@ -49,6 +53,7 @@ export default {
     colorPallete, 
     TileCanvas,
     DownloadButton,
+    FileControls,
     Console
   },
 
@@ -72,14 +77,21 @@ export default {
 </script>
 
 <style>
+body{
+  margin: 0;
+}
 .description{
+  height:940px;
   width: 20%;
+  min-width: 415px;
   margin-right:3%;
 }
 
 .heading__primary{
   margin:0;
-  font-size: 64px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  font-size: 44px;
 }
 
 .heading__sub{
@@ -92,15 +104,10 @@ export default {
 
 #app {
   background-color: #3d3d3d;
-  height:2400px;
   min-width: 960px;
-  position: absolute;
+
   text-align: center;
-  bottom: 0px;
   font-size: 64px;
-  top: 0px;
-  right: 0px;
-  left: 0px;
  /* background-color: #270e24;*/
   color: #9eb737;
   font-family: 'VT323', monospace;
