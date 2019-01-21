@@ -1,4 +1,4 @@
-import {SET_FILE_TYPE,SET_FILE_NAME, CHANGE_FILE_NAME} from '../types';
+import {SET_FILE_TYPE, SET_FILE_NAME, CHANGE_FILE_NAME, CHANGE_FILE_TYPE} from '../types';
 
 const state = {
   fileName:"TileData",
@@ -20,6 +20,14 @@ const actions = {
   [CHANGE_FILE_NAME](state,fileName){
     if(fileName.length > 3){
       state.commit(SET_FILE_NAME, fileName)
+    }
+  },
+  [CHANGE_FILE_TYPE](state,toggle){
+    if(toggle){
+      state.commit(SET_FILE_TYPE,"ASM");
+    }
+    else{
+      state.commit(SET_FILE_TYPE,"C");
     }
   }
 }

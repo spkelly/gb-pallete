@@ -15,6 +15,7 @@ export const RESET = "reset";
 
 // File
 export const CHANGE_FILE_NAME = "changeFileName"
+export const CHANGE_FILE_TYPE = "changeFileType";
 
 // Palette
 export const CHANGE_COLOR = "changeColor";
