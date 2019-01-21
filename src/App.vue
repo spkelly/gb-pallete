@@ -67,7 +67,6 @@ export default {
   mounted() {
     let data = Array(8).fill(null).map(()=>Array(8).fill(0));
     this.$store.dispatch('updateOutput',data);
-    console.log(this.$store);
   },
 }
 </script>

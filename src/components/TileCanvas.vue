@@ -49,7 +49,6 @@ export default{
       let pos = CanvasHelper.getMousePosition(this.canvas,e);
       let coords = CanvasHelper.getPixelCoordinates(pos);
       let offset = CanvasHelper.getPixelOffset(coords);
-      console.log("Offset:", offset);
       return {coords,offset};
     },
 

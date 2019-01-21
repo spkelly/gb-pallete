@@ -2,9 +2,6 @@ import {PIXEL_SIZE,GRID_HEIGHT,GRID_WIDTH} from './constants';
 
 export function getMousePosition(canvas,e){
   let canvasRect = canvas.getBoundingClientRect();
-  console.log("rect: ",canvasRect);
-  console.log("client X: ",e.clientX,"client Y:",e.clientY);
-  console.log("mouse X: ",e.clientX - canvasRect.x,"mouse Y:",e.clientY - canvasRect.y);
 
   return{
     x: e.clientX - canvasRect.x,
@@ -13,8 +10,6 @@ export function getMousePosition(canvas,e){
 }
 
 export function getPixelCoordinates(MousePos){
-    console.log(MousePos);
-    console.log("row",MousePos.y+"/"+PIXEL_SIZE + " = " ,Math.floor(MousePos.y/PIXEL_SIZE))
   return{
     col: Math.floor(MousePos.x/PIXEL_SIZE),
     row: Math.floor(MousePos.y/PIXEL_SIZE)
@@ -26,10 +21,6 @@ export function getPixelOffset(coords){
     x:coords.col * PIXEL_SIZE,
     y:coords.row * PIXEL_SIZE
   }
-}
-
-export function logger(msg){
-  console.log(msg);
 }
 
 export function shiftImageUp(ctx){
@@ -65,7 +56,6 @@ export function shiftImageLeft(ctx){
 }
 
 export function drawGrid(canvas,ctx){ 
-  console.log("I am drawing in helper")
   canvas.width = GRID_WIDTH;
   canvas.height = GRID_HEIGHT;
 
@@ -98,7 +88,6 @@ export function checkForDraw(e){
 }
 
 export function draw(coords){
-  console.log("Drawing", coords, prevCoords);
   let offset = getPixelOffset(coords);
   fillCell(offset);
 }
