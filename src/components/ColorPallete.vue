@@ -53,7 +53,8 @@ export default {
   #pallete {
   position: relative;
 
-  align-self: center;
+  align-self: top;
+  margin-top:100px;
   height: 200px;
   justify-content: center;
   flex-direction: column;
