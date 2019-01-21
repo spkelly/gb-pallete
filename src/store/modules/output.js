@@ -1,5 +1,5 @@
 import {convertPixelMatrix} from '../../services/ConverterServices';
-import { SET_PIXEL_DATA, SET_IMAGE_DATA, SET_CONVERTED_PIXEL_DATA, GET_CONVERTED_PIXEL_DATA } from '../types';
+import { SET_PIXEL_DATA, SET_IMAGE_DATA, SET_CONVERTED_PIXEL_DATA, GET_CONVERTED_PIXEL_DATA, GET_PIXEL_MATRIX, SHIFT_DATA_LEFT, SHIFT_DATA_RIGHT, SHIFT_DATA_UP, SHIFT_DATA_DOWN, UPDATE_OUTPUT, CONVERT_PIXEL_DATA, RESET_MATRIX } from '../types';
 
 
     //TODO: initialize convertedpixelData so its not just a bunch of 0s
@@ -30,14 +30,14 @@ const getters = {
   [GET_CONVERTED_PIXEL_DATA](state){
     return convertPixelMatrix(state.pixelMatrix);
   },
-  getPixelMatrix(){
+  [GET_PIXEL_MATRIX](){
     return state.pixelMatrix
   }
   
 }
 //TODO: Make initialization of converted pixel data
 const actions = {
-  shiftDataLeft({dispatch,getters}){
+  [SHIFT_DATA_LEFT]({dispatch,getters}){
     let pixelMatrix = getters.getPixelMatrix;
     for(let row = 0; row < pixelMatrix.length; row ++){
       let firstColumn = pixelMatrix[row].shift();
@@ -46,7 +46,7 @@ const actions = {
 
     dispatch("updateOutput",pixelMatrix);
   },
-  shiftDataRight({dispatch,getters}){
+  [SHIFT_DATA_RIGHT]({dispatch,getters}){
     let pixelMatrix = getters.getPixelMatrix;
     for(let row = 0; row < pixelMatrix.length; row ++){
       let lastColumn = pixelMatrix[row].pop();
@@ -55,21 +55,21 @@ const actions = {
     dispatch("updateOutput",pixelMatrix);
   },
 
-  shiftDataUp({getters,dispatch}){
+  [SHIFT_DATA_UP]({getters,dispatch}){
     let pixelMatrix = getters.getPixelMatrix;
     let firstRow = pixelMatrix.shift();
     pixelMatrix.push(firstRow);
     dispatch("updateOutput",pixelMatrix);
   },
 
-  shiftDataDown({getters,dispatch}){
+  [SHIFT_DATA_DOWN]({getters,dispatch}){
     let pixelMatrix = getters.getPixelMatrix;
     let temp = pixelMatrix.pop();
     pixelMatrix.unshift(temp);
     dispatch("updateOutput",pixelMatrix);
   },
-  //TODO: Rename to updateOutput
-  updateOutput({commit, getters}, newMatrix){
+
+  [UPDATE_OUTPUT]({commit, getters}, newMatrix){
     
     let canvas = getters.getCanvas;
     let ctx = canvas.getContext("2d");
@@ -80,15 +80,15 @@ const actions = {
     // modify currentImageData
   },
 
-  convertPixelMatrix({commit,getters}){
+  [CONVERT_PIXEL_DATA]({commit,getters}){
     let convertedPixelData = getters.getConvertedPixelData;
     commit((SET_CONVERTED_PIXEL_DATA, convertedPixelData));
   },
 
-  resetMatrix({commit}){
+  [RESET_MATRIX]({commit}){
     const emptyPixelMatrix = Array(8).fill(null).map(()=>Array(8).fill(0));
     commit(SET_PIXEL_DATA,emptyPixelMatrix);
-  },
+  }
 
 }
 

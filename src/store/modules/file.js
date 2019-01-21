@@ -1,4 +1,4 @@
-import {SET_FILE_TYPE,SET_FILE_NAME} from '../types';
+import {SET_FILE_TYPE,SET_FILE_NAME, CHANGE_FILE_NAME} from '../types';
 
 const state = {
   fileName:"TileData",
@@ -11,13 +11,13 @@ const mutations = {
     state.fileType = newFileType;
   },
 
-  [SET_FILE_NAME](state, newFileName){
+  [SET_FILE_NAME] (state, newFileName){
     state.fileName = newFileName;
   }
 }
 
 const actions = {
-  changeFileName(state,fileName){
+  [CHANGE_FILE_NAME](state,fileName){
     if(fileName.length > 3){
       state.commit(SET_FILE_NAME, fileName)
     }

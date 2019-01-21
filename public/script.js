@@ -41,7 +41,6 @@ function checkForDraw(e){
 }
 
 function draw(coords){
-  console.log("Drawing", coords, prevCoords);
   let offset = getPixelOffset(coords);
   fillCell(offset);
 }

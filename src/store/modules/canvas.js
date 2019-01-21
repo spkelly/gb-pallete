@@ -1,6 +1,6 @@
-import { SET_CANVAS, CLEAR_CANVAS, INIT_CANVAS, GET_CANVAS } from "../types";
+import { SET_CANVAS, CLEAR_CANVAS, INIT_CANVAS, GET_CANVAS, SHIFT_CANVAS_RIGHT, SHIFT_CANVAS_LEFT, SHIFT_CANVAS_UP, SHIFT_CANVAS_DOWN } from "../types";
 import {GRID_HEIGHT,GRID_WIDTH} from '../../services/constants';
-import {shiftImageLeft,shiftImageRight, redraw, shiftImageUp, shiftImageDown} from '../../services/CanvasServices';
+import {shiftImageLeft,shiftImageRight, shiftImageUp, shiftImageDown} from '../../services/CanvasServices';
 const state = {
   canvas:{}
 }
@@ -29,14 +29,14 @@ const actions = {
     commit(SET_CANVAS,canvas)
   },
 
-  shiftRight({getters,dispatch}){
+  [SHIFT_CANVAS_RIGHT]({getters,dispatch}){
     let canvas = getters.getCanvas;
     let ctx = canvas.getContext("2d");
     shiftImageRight(ctx);
     dispatch("shiftDataRight");
 
   },
-  shiftLeft({getters,dispatch}){
+  [SHIFT_CANVAS_LEFT]({getters,dispatch}){
     let canvas = getters.getCanvas
     let ctx = canvas.getContext("2d");
     shiftImageLeft(ctx);
@@ -44,13 +44,13 @@ const actions = {
     // 
     // shiftImageRight(canvas);
   },
-  shiftUp({getters,dispatch}){
+  [SHIFT_CANVAS_UP]({getters,dispatch}){
     let canvas = getters.getCanvas;
     let ctx = canvas.getContext("2d");
     shiftImageUp(ctx);
     dispatch("shiftDataUp");
   },
-  shiftDown({getters,dispatch}){
+  [SHIFT_CANVAS_DOWN]({getters,dispatch}){
     let canvas = getters.getCanvas;
     let ctx = canvas.getContext("2d");
     shiftImageDown(ctx);
