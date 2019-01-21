@@ -77,6 +77,7 @@ export default {
   overflow: hidden;
   position: relative;
   display: flex;
+  min-width: 520px;
   flex-direction: column;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
