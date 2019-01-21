@@ -8,7 +8,6 @@
         ${{data}}
       </p>
     </div>
-    <FileControls /> 
   </section>
 </template>
 
@@ -45,7 +44,7 @@ export default{
     font-size:  30px;
     text-align: left;
     border: 8px solid #9eb737;
-    margin-left: 10px;
+    margin-left: 20px;
     justify-content: space-between;
   }
 

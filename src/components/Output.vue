@@ -2,7 +2,7 @@
 <section id="output">
   <TileOutput />
   <DataOutput />
-  <miniOutput />
+  <FileControls /> 
 </section>
 </template>
 
@@ -11,13 +11,15 @@
 import DataOutput from './DataOutput';
 import MiniOutput from './MiniOutput';
 import TileOutput from './TileOutput';
+import FileControls from './FileControls';
 
 export default {
   name:"Output",
   components:{
     DataOutput,
     MiniOutput,
-    TileOutput
+    TileOutput,
+    FileControls
   }
   
 }
@@ -29,6 +31,7 @@ export default {
 
   #output{
     margin-left: 40px;
+    display: flex;
   }
 
 </style>

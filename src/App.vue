@@ -18,7 +18,6 @@
     </div>
     <div class="flex-row">
       <DownloadButton />
-      
     </div>
   </div>
 </template>

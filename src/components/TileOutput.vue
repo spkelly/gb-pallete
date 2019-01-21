@@ -2,14 +2,8 @@
   <section>
     <div class="section-header">
       <h2 class="header__sub">
-        Pallete Data
+        Mini Output
       </h2>
-    </div>
-    <div class="out">
-    <div class="output" >
-      <code v-for="(row, index) in pixelMatrix" :key="index">
-        {{row.join()}}
-      </code>
     </div>
     <div class="mini_output_holder">
       <MiniOutput />
@@ -17,6 +11,13 @@
       <MiniOutput />
       <MiniOutput />
     </div>
+    <div class="out">
+    <div class="output" >
+      <code v-for="(row, index) in pixelMatrix" :key="index">
+        {{row.join()}}
+      </code>
+    </div>
+    
   </div>
   
   </section>
@@ -60,7 +61,7 @@ export default {
 
   .mini_output_holder{
     background-color: #ccdaa6;
-    margin-top: 10px;
+    margin: 24px 0;
     border: 8px solid #9eb737;
     display: flex;
     width: 200px;
