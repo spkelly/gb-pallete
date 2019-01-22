@@ -22,7 +22,7 @@ export default {
 </script>
 
 
-<style>
+<style lang="scss">
 
 .console__screen{
   position: relative;

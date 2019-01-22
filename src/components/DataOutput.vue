@@ -30,7 +30,8 @@ export default{
 </script>
 
 
-<style>
+<style lang="scss">
+  
   .header__sub{
    font-size: 26px;
   }

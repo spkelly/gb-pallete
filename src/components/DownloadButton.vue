@@ -35,7 +35,7 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss">
   .buttonHolder {
     margin-top:20px;
     font-size: 32px;

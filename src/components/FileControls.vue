@@ -43,7 +43,7 @@ export default {
 
 
 
-<style lang="css">
+<style lang="scss">
   input{
     width:28%;
     background: transparent;

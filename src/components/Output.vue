@@ -25,7 +25,7 @@ export default {
 
 
 
-<style>
+<style lang="scss">
 
   #output{
     margin-left: 40px;

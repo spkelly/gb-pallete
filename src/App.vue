@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+@import './scss/main.scss';
 
 
 body{
@@ -102,7 +102,7 @@ body{
 }
 
 #app {
-  background-color: #3d3d3d;
+  background-color: $color__background;
   min-width: 960px;
 
   text-align: center;

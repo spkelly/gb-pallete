@@ -32,7 +32,7 @@
       this.ctx = canvas.getContext("2d");
     }
   }
-</script>
+</script lang="scss">
 
 <style lang="css">
   .mini_output{
