@@ -1,10 +1,10 @@
 <template>
-  <section id="console">
+  <section class="console">
     <div class="console__top"></div>
     <ConsoleScreen v-on:canvaschange="handleCanvasChange"/>
     <div class="console__bottom">
       <div class="console__buttons">
-        <div class="console__buttons-dpad">
+        <div class="dpad">
           <div class="dpad__horiz">
             <div class="dpad__right" @click="shiftRight"></div>
             <div class="dpad__left" @click="shiftLeft"></div>
@@ -62,7 +62,7 @@ export default {
 
 <style style lang="scss">
 @import "../../scss/main";
-#console{
+.console{
   overflow: hidden;
   position: relative;
   display: flex;
@@ -75,26 +75,16 @@ export default {
   border-bottom-right-radius:130px;
   border-bottom-left-radius: 40px;
 
+  &__top{
+    min-height: 6%;
+  }
+  &__bottom{
+  height:100%;
+  flex-grow: 1;
+  margin-top: 80px;
 }
-
-.console__speaker{
-  position: absolute;
-  right: 8px;
-  bottom: 40px;
-  transform: rotate(-34deg);
-  width: 200px;
-}
-
-.console__speaker-element{
-  display: inline-block;
-  margin:0 10px;
-  border-radius: 20%;
-  width: 10px;
-  height:100px;
-  background-color:#8A8777;
-}
-
-.console__shadow{
+  
+  &__shadow{
   position: absolute;
   right:0;
   bottom:0;
@@ -104,25 +94,38 @@ export default {
   clip-path: polygon(10% 100%, 100% 100%, 100% 15%);
 }
 
-
-
-.console__top{
-    min-height: 6%;
-}
-.console__bottom{
-  height:100%;
-  flex-grow: 1;
-  margin-top: 80px;
 }
 
-.console__buttons{
-  position: relative;
-  display: flex;
+.console__speaker{
+  position: absolute;
+  right: 8px;
+  bottom: 40px;
+  transform: rotate(-34deg);
+  width: 200px;
+
+  &-element{
+    display: inline-block;
+    margin:0 10px;
+    border-radius: 20%;
+    width: 10px;
+    height:100px;
+    background-color:#8A8777;
+  }
 }
 
 
 
-.console__buttons-dpad{
+
+
+
+
+
+
+
+
+
+
+.dpad{
 
   margin-right:160px;
   margin-left: 40px;
@@ -130,130 +133,131 @@ export default {
   height: 130px;
   position: relative;
   z-index: 2;
+
+  &__horiz{
+    border-radius: 8px;
+    display: block;
+    position: absolute;
+    height: 35%;
+    width:100%;
+    top: 32%;
+    background-color: black;
+  }
+  &__vert{
+    z-index: 100;
+    border-radius: 8px;
+    position: absolute;
+    height: 35%;
+    width:100%;
+    top: 33%;
+    content:'';
+    transform: rotate(90deg);
+    background-color:black;
+  }
+  &__up{
+    cursor: pointer;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    top:0px;
+    position: absolute;
+    height:100%;
+    width:35%;
+  }
+  &__right{
+    cursor: pointer;
+    width:35%;
+    height: 100%;
+    right:0px;
+    position: absolute;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+  &__left{
+    cursor: pointer;
+    width:35%;
+    height: 100%;
+    left:0px;
+    position: absolute;
+    float: left;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  &__down{
+    cursor: pointer;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    position: absolute;
+    bottom:0px;
+    right: 0px;
+    width:35%;
+    height: 100%;
+  }
 }
 
-.dpad__horiz{
-  border-radius: 8px;
-  display: block;
-  position: absolute;
-  height: 35%;
-  width:100%;
-  top: 32%;
-  background-color: black;
-}
-
-.dpad__vert{
-  z-index: 100;
-   border-radius: 8px;
-  position: absolute;
-  height: 35%;
-  width:100%;
-  top: 33%;
-  content:'';
-  transform: rotate(90deg);
-  background-color:black;
-}
-.dpad__up{
-  cursor: pointer;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  top:0px;
-  position: absolute;
-  height:100%;
-  width:35%;
-
-}
-.dpad__right{
-  cursor: pointer;
-  width:35%;
-  height: 100%;
-  right:0px;
-  position: absolute;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-
-
-}
-
-.dpad__left{
-  cursor: pointer;
-  width:35%;
-  height: 100%;
-  left:0px;
-  position: absolute;
-  float: left;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-
-}
-
-.dpad__down{
-  cursor: pointer;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  position: absolute;
-  bottom:0px;
-  right: 0px;
-  width:35%;
-  height: 100%;
-
-}
-.console__buttons-face{
-  position: relative;
-  width: 180px;
-  height: 130px;
-}
-
-
-
-.console__buttons-a{
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  width:75px;
-  height:75px;
-  border-radius: 100%;
-  background-color: #AC2D5E;
-
-}
-
-.console__buttons-b{
-  bottom: 10px;
-  left: 0px;
-  position: absolute;
-  margin: 0 10px;
-  width:75px;
-  height:75px;
-  border-radius: 100%;
-  background-color: #AC2D5E;
-}
-
-.console__buttons-bottom{
-  margin-top:30px;
+.console__buttons{
   position: relative;
   display: flex;
-  justify-content: center;
+
+  &-face{
+    position: relative;
+    width: 180px;
+    height: 130px;
+  }
+  &-a{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width:75px;
+    height:75px;
+    border-radius: 100%;
+    background-color: #AC2D5E;
+  }
+  &-b{
+    bottom: 10px;
+    left: 0px;
+    position: absolute;
+    margin: 0 10px;
+    width:75px;
+    height:75px;
+    border-radius: 100%;
+    background-color: #AC2D5E;
+  }
+  &-bottom{
+    margin-top:30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  &-start{
+    align-self: center;
+    margin-top: 40px;
+    margin-right: 30px;
+    margin-left: -70px;
+    height:18px;
+    width: 70px;
+    background-color: #867E8D;
+    border-radius: 30%;
+    transform: rotate(-30deg);
+  }
+  &-select{
+    align-self: center;
+    margin-top: 40px;
+    height:18px;
+    width: 70px;
+    background-color: #867E8D;
+    border-radius: 30%;
+    transform: rotate(-30deg);
+  }
 }
 
-.console__buttons-start{
-  align-self: center;
-  margin-top: 40px;
-  margin-right: 30px;
-  margin-left: -70px;
-  height:18px;
-  width: 70px;
-  background-color: #867E8D;
-  border-radius: 30%;
-  transform: rotate(-30deg);
-}
-.console__buttons-select{
-  align-self: center;
-  margin-top: 40px;
-  height:18px;
-  width: 70px;
-  background-color: #867E8D;
-  border-radius: 30%;
-  transform: rotate(-30deg);
-}
+
+
+
+
+
+
+
+
+
 
 </style>
