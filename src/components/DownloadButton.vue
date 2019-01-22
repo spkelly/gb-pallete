@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="buttonHolder">
-      <div class="pixel__button-vert" v-on:click="$store.dispatch(RESET)">
+      <div class="button" v-on:click="$store.dispatch(RESET)">
         clear grid
       </div>
-      <div class="pixel__button-vert" v-on:click="download()" >
+      <div class="button" v-on:click="download()" >
         generate data
       </div>
     </div>
@@ -36,18 +36,18 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../scss/main';
+
   .buttonHolder {
     margin-top:20px;
-    font-size: 32px;
   }
-  .pixel__button-vert {
-
+  .button {
+    display: inline;
     cursor: pointer;
     font-size: 32px;
     color: #113711;
-    background-color: #9eb737;
+    background-color: $color__primary;
     padding: 10px;
     margin: 20px;
-    display: inline;
   }
 </style>
