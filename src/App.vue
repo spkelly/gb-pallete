@@ -5,7 +5,6 @@
     </header> -->
     <div class="flex-row">
       <section class="description">
-
         <h1 class="heading__primary">This is a Gameboy Tile Generator.</h1>
         <h1 class="heading__primary">More description to come...</h1>
         <FileControls /> 
@@ -29,7 +28,6 @@ import FileControls from './components/FileControls';
 import Output from './components/Output';
 import Console from './components/console/Console';
 import {mapState, mapActions} from 'vuex';
-import { shiftLeft } from './services/CanvasServices';
 import { UPDATE_OUTPUT } from './store/types';
 
 export default {
@@ -74,27 +72,20 @@ export default {
 
 <style lang="scss">
 @import './scss/main.scss';
+@import './scss/base';
+@import './scss/typography';
 
 
 body{
   margin: 0;
 }
+
+
 .description{
   height:940px;
   width: 20%;
   min-width: 415px;
   margin-right:3%;
-}
-
-.heading__primary{
-  margin:0;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  font-size: 44px;
-}
-
-.heading__sub{
-  font-size:12px;
 }
 
 #header{
@@ -104,12 +95,7 @@ body{
 #app {
   background-color: $color__background;
   min-width: 960px;
-
   text-align: center;
-  font-size: 64px;
- /* background-color: #270e24;*/
-  color: #9eb737;
-  font-family: 'VT323', monospace;
 }
 
 .flex-row {
