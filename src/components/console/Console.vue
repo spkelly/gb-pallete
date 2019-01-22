@@ -62,6 +62,7 @@ export default {
 
 <style style lang="scss">
 @import "../../scss/main";
+
 .console{
   overflow: hidden;
   position: relative;
@@ -82,7 +83,7 @@ export default {
   height:100%;
   flex-grow: 1;
   margin-top: 80px;
-}
+  }
   
   &__shadow{
   position: absolute;
@@ -92,7 +93,7 @@ export default {
   height:180px;
   background-color: #AAA79C;
   clip-path: polygon(10% 100%, 100% 100%, 100% 15%);
-}
+  }
 
 }
 
@@ -102,7 +103,7 @@ export default {
   bottom: 40px;
   transform: rotate(-34deg);
   width: 200px;
-
+  
   &-element{
     display: inline-block;
     margin:0 10px;
@@ -112,21 +113,7 @@ export default {
     background-color:#8A8777;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 .dpad{
-
   margin-right:160px;
   margin-left: 40px;
   width: 130px;
@@ -134,7 +121,7 @@ export default {
   position: relative;
   z-index: 2;
 
-  &__horiz{
+  %dpad-section{
     border-radius: 8px;
     display: block;
     position: absolute;
@@ -143,57 +130,47 @@ export default {
     top: 32%;
     background-color: black;
   }
-  &__vert{
-    z-index: 100;
-    border-radius: 8px;
-    position: absolute;
-    height: 35%;
-    width:100%;
-    top: 33%;
-    content:'';
-    transform: rotate(90deg);
-    background-color:black;
+  &__horiz{
+    @extend %dpad-section;
   }
-  &__up{
+  &__vert{
+    @extend %dpad-section;
+    transform: rotate(90deg);
+
+  }
+  %dpad-trigger{
     cursor: pointer;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-    top:0px;
     position: absolute;
     height:100%;
     width:35%;
   }
+  &__up{
+    @extend %dpad-trigger;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    top:0px;
+  }
   &__right{
-    cursor: pointer;
-    width:35%;
-    height: 100%;
+    @extend %dpad-trigger;
     right:0px;
-    position: absolute;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
   }
   &__left{
-    cursor: pointer;
-    width:35%;
-    height: 100%;
+    @extend %dpad-trigger;
     left:0px;
-    position: absolute;
     float: left;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
   }
   &__down{
-    cursor: pointer;
+    @extend %dpad-trigger;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
-    position: absolute;
     bottom:0px;
     right: 0px;
-    width:35%;
-    height: 100%;
   }
 }
-
 .console__buttons{
   position: relative;
   display: flex;
@@ -203,24 +180,22 @@ export default {
     width: 180px;
     height: 130px;
   }
-  &-a{
+
+  %face-button{
     position: absolute;
+    width:75px;
+    height:75px;
+    border-radius: 100%;
+  }
+  &-a{
+    @extend %face-button;
     top: 0px;
     right: 0px;
-    width:75px;
-    height:75px;
-    border-radius: 100%;
-    background-color: #AC2D5E;
   }
   &-b{
+    @extend %face-button;
     bottom: 10px;
     left: 0px;
-    position: absolute;
-    margin: 0 10px;
-    width:75px;
-    height:75px;
-    border-radius: 100%;
-    background-color: #AC2D5E;
   }
   &-bottom{
     margin-top:30px;
@@ -228,25 +203,23 @@ export default {
     display: flex;
     justify-content: center;
   }
-  &-start{
+  %bottom-buttons{
     align-self: center;
     margin-top: 40px;
+    height:18px;
+    width: 70px;
+    border-radius: 30%;
+    transform: rotate(-30deg);
+    background-color: #867E8D;
+  }
+  &-start{
+    @extend %bottom-buttons;
     margin-right: 30px;
     margin-left: -70px;
-    height:18px;
-    width: 70px;
-    background-color: #867E8D;
-    border-radius: 30%;
-    transform: rotate(-30deg);
+
   }
   &-select{
-    align-self: center;
-    margin-top: 40px;
-    height:18px;
-    width: 70px;
-    background-color: #867E8D;
-    border-radius: 30%;
-    transform: rotate(-30deg);
+    @extend %bottom-buttons;
   }
 }
 
