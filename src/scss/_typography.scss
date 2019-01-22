@@ -1,0 +1,36 @@
+// default browser settings 
+// font-size: 75% == 12px 
+// font-size: 62.5% == 10px 
+// font-size: 56.25% == 9px 
+
+html{
+  font-size: 75%;
+  @include respond(medium){
+    font-size:62.5%;
+  }
+  @include respond(small){
+    font-size: 56.25%;
+  }
+}
+body{
+  color: #9eb737;
+  font-family: 'VT323', monospace;
+}
+
+input{
+  color: #9eb737;
+  font-family: 'VT323', monospace;
+}
+
+.heading__primary{
+  margin: 40px 0;
+  font-size: 4rem;
+}
+
+.heading__secondary{
+  font-size: 3rem;
+}
+
+.paragraph{
+
+}
