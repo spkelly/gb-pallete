@@ -3,10 +3,6 @@
     <!-- <header id="header">
       <h1 class="heading__primary">Gameboy Tile Generator</h1> 
     </header> -->
-    <button @click="shiftLeft">Shift Left</button>
-    <button @click="shiftRight">Shift Right</button>
-    <button @click="shiftUp">Shift Up</button>
-    <button @click="shiftDown">Shift Down</button>
     <div class="flex-row">
       <section class="description">
 
@@ -76,7 +72,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
+
+
 body{
   margin: 0;
 }

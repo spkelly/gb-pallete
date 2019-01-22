@@ -60,7 +60,22 @@ export default {
 </script>
 
 
-<style>
+<style style lang="scss">
+@import "../../scss/main";
+#console{
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  min-width: 520px;
+  flex-direction: column;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color:#CBCBC1;
+  height: 900px;
+  border-bottom-right-radius:130px;
+  border-bottom-left-radius: 40px;
+
+}
 
 .console__speaker{
   position: absolute;
@@ -89,19 +104,7 @@ export default {
   clip-path: polygon(10% 100%, 100% 100%, 100% 15%);
 }
 
-#console{
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  min-width: 520px;
-  flex-direction: column;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  background-color:#CBCBC1;
-  height: 900px;
-  border-bottom-right-radius:130px;
-  border-bottom-left-radius: 40px;
-}
+
 
 .console__top{
     min-height: 6%;
