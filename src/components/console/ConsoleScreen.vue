@@ -26,7 +26,7 @@ export default {
 
 .console__screen{
   position: relative;
-  border-radius: 30px 30px 110px 30px;
+  border-radius: 30px 30px 80px 30px;
   width: fit-content;
   padding: 30px;
   padding-left: 60px;
@@ -40,8 +40,8 @@ export default {
 }
 
 .console__light{
-  top:0px;
-  left: 0px;
+  top:120px;
+  left: 20px;
   position: absolute;
   height: 3%;
   width: 3%;
