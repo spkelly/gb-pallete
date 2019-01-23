@@ -1,5 +1,6 @@
 <template>
   <div class="console__buttons">
+  <div class="console__buttons-top">
     <div class="dpad">
       <div class="dpad__horiz">
         <div class="dpad__right" @click="shiftRight"></div>
@@ -14,10 +15,11 @@
       <div class="console__buttons-a"></div>
       <div class="console__buttons-b"></div>
     </div>
-    <div class="console__buttons-bottom">
-      <div class="console__buttons-start"></div>
-      <div class="console__buttons-select"></div>
-      </div>
+  </div>
+  <div class="console__buttons-bottom">
+    <div class="console__buttons-start"></div>
+    <div class="console__buttons-select"></div>
+  </div>
   </div>
 </template>
 
@@ -43,19 +45,18 @@ export default {
 @import '../../scss/main';
 
   .console__buttons{
-    position: relative;
-    display: flex;
+
 
     &-face{
       position: relative;
-      width: 180px;
+      width: 120px;
       height: 130px;
     }
 
     %face-button{
       position: absolute;
-      width:75px;
-      height:75px;
+      width:50px;
+      height:50px;
       background-color:#A1295E;
       border-radius: 100%;
     }
@@ -69,14 +70,16 @@ export default {
       bottom: 10px;
       left: 0px;
     }
-    &-bottom{
-      margin-top:30px;
+    &-top{
       position: relative;
       display: flex;
+    }
+    &-bottom{
+      position: relative;
       justify-content: center;
     }
     %bottom-buttons{
-      align-self: center;
+      position: absolute;
       margin-top: 40px;
       height:18px;
       width: 70px;
@@ -86,18 +89,20 @@ export default {
     }
     &-start{
       @extend %bottom-buttons;
-      margin-right: 30px;
-      margin-left: -70px;
+      top: 0;
+      left: 45%;
     }
     &-select{
       @extend %bottom-buttons;
+      left: 30%;
     }
   }
 
   .dpad{
-    margin-right:160px;
+    margin-right:110px;
     margin-left: 40px;
-    width: 150px;
+    min-width: 120px;
+    max-width: 120px;
     height: 130px;
     position: relative;
     z-index: 2;

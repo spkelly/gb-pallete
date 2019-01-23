@@ -16,7 +16,6 @@
       <Console v-on:canvaschange="handleCanvasChange" />
       <Output />
     </div>
-
   </div>
 </template>
 

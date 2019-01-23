@@ -27,13 +27,13 @@ export default {
 .console__screen{
   position: relative;
   border-radius: 30px 30px 110px 30px;
-  max-width: fit-content;
-  padding: 40px;
-  padding-left: 80px;
-  padding-right: 80px;
+  width: fit-content;
+  padding: 30px;
+  padding-left: 60px;
+  padding-right: 60px;
   padding-bottom: 50px;
   margin-right: 40px;
-  margin-left:40px;
+  margin-left: 40px;
   /* padding-right:130px;
   padding-top: 60px; */
   background-color:#625F70;

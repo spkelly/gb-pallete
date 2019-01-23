@@ -15,6 +15,9 @@ import { INIT_CANVAS } from '../store/types';
 
 export default{
   name: 'TileCanvas',
+  props:{
+    size: Number
+  },
   computed:{
     pixelColor(){
       return this.$store.state.Palette.selectedColor
@@ -89,6 +92,7 @@ export default{
   }
 
   .canvas_holder{
+    width:fit-content;
     cursor: pointer;
     margin:0 auto;
     position:relative;

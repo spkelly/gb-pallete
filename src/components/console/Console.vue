@@ -1,7 +1,7 @@
 <template>
   <section class="console">
     <div class="console__top"></div>
-    <ConsoleScreen v-on:canvaschange="handleCanvasChange"/>
+    <ConsoleScreen size={CANVAS_LARGE} v-on:canvaschange="handleCanvasChange"/>
     <div class="console__bottom">
       <ConsoleButtons />
       <div class="console__shadow"></div>
@@ -20,6 +20,7 @@
 <script>
 import ConsoleScreen from './ConsoleScreen';
 import ConsoleButtons from './ConsoleButtons';
+import {CANVAS_LARGE} from '../../store/types';
 
 export default {
   name:"Console",
@@ -43,13 +44,15 @@ export default {
   overflow: hidden;
   position: relative;
   display: flex;
-  min-width: 520px;
+  width:fit-content;
+  min-width: 426px;
+  max-width: 426px;
   flex-direction: column;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   background-color:#CBCBC1;
-  height: 900px;
-  border-bottom-right-radius:130px;
+  height: 700px;
+  border-bottom-right-radius:100px;
   border-bottom-left-radius: 40px;
 
   &__top{
@@ -58,15 +61,15 @@ export default {
   &__bottom{
   height:100%;
   flex-grow: 1;
-  margin-top: 80px;
+  margin-top: 60px;
   }
   
   &__shadow{
   position: absolute;
   right:0;
   bottom:0;
-  width:240px;
-  height:180px;
+  width:180px;
+  height:120px;
   background-color: #AAA79C;
   clip-path: polygon(10% 100%, 100% 100%, 100% 15%);
   }
@@ -75,17 +78,17 @@ export default {
 
 .console__speaker{
   position: absolute;
-  right: 8px;
-  bottom: 40px;
+  right: 0px;
+  bottom: 30px;
   transform: rotate(-34deg);
   width: 200px;
   
   &-element{
     display: inline-block;
-    margin:0 10px;
+    margin:0 6px;
     border-radius: 20%;
     width: 10px;
-    height:100px;
+    height:70px;
     background-color:#8A8777;
   }
 }
