@@ -17,7 +17,7 @@
     <div class="console__buttons-bottom">
       <div class="console__buttons-start"></div>
       <div class="console__buttons-select"></div>
-    </div>
+      </div>
   </div>
 </template>
 
@@ -28,12 +28,12 @@ import { SHIFT_CANVAS_LEFT, SHIFT_CANVAS_RIGHT, SHIFT_CANVAS_UP, SHIFT_CANVAS_DO
 export default {
   name:"ConsoleButtons",
   methods:{
-    ...mapActions[{
+    ...mapActions({
       shiftLeft: SHIFT_CANVAS_LEFT,
       shiftRight: SHIFT_CANVAS_RIGHT,
       shiftUp: SHIFT_CANVAS_UP,
       shiftDown: SHIFT_CANVAS_DOWN
-    }]
+    })
   }
 }
 </script>
@@ -97,7 +97,7 @@ export default {
   .dpad{
     margin-right:160px;
     margin-left: 40px;
-    width: 130px;
+    width: 150px;
     height: 130px;
     position: relative;
     z-index: 2;
@@ -106,7 +106,7 @@ export default {
       border-radius: 8px;
       display: block;
       position: absolute;
-      height: 35%;
+      height: 32%;
       width:100%;
       top: 32%;
       background-color: black;
