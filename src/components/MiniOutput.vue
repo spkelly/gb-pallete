@@ -4,6 +4,7 @@
 
 
 <script>
+import {CANVAS_MED,CANVAS_LARGE} from '../services/constants';
   export default{
     name:"MiniOuput",
 
@@ -27,8 +28,8 @@
     },
     mounted(){
       let canvas = this.$refs.mini_output;
-      canvas.width = 280;
-      canvas.height = 280;
+      canvas.width = CANVAS_MED;
+      canvas.height = CANVAS_MED;
       this.ctx = canvas.getContext("2d");
     }
   }
