@@ -1,6 +1,6 @@
 <template>
-  <section>
-    <div class="sectionHeader">
+  <section class="output-section">
+    <div class="section__header">
       <h2 class="header__sub">Pixel Data</h2>
     </div>
     <div class="data__output">
@@ -31,12 +31,17 @@ export default{
 
 
 <style lang="scss">
-  
+  @import '../scss/main';
+  .output-section{
+    margin-left: 40px;
+  }
+
   .header__sub{
    font-size: 26px;
   }
 
   .data__output{
+    @include border;
     display:flex;
     flex-wrap: wrap;
     max-width: 100px;
@@ -44,8 +49,6 @@ export default{
     padding: 10px;
     font-size:  30px;
     text-align: left;
-    border: 8px solid #9eb737;
-    margin-left: 20px;
     justify-content: space-between;
   }
 

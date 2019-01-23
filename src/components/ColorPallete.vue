@@ -55,7 +55,7 @@ export default {
 
   align-self: top;
   margin-top:100px;
-  height: 200px;
+  height: fit-content;
   justify-content: center;
   flex-direction: column;
   border-top: 8px solid #9eb737;

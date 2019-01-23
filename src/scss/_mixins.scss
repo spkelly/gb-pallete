@@ -10,3 +10,7 @@
     }
   }
 }
+
+@mixin border{
+  border: 4px solid $color__pink;
+}

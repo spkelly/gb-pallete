@@ -45,8 +45,8 @@ export default {
     display: inline;
     cursor: pointer;
     font-size: 32px;
-    color: #113711;
-    background-color: $color__primary;
+    color: $color__dark__pink;
+    background-color: $color__pink;
     padding: 10px;
     margin: 20px;
   }

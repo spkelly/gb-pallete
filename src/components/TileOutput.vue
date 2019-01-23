@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="section-header">
+    <div class="section__header">
       <h2 class="header__sub">
         Mini Output
       </h2>
@@ -47,6 +47,10 @@ export default {
 </script>
 
 <style lang="scss">
+  @import '../scss/main';
+  .section__header{
+    margin-bottom: 24px;
+  }
   .output {
     display: flex;
     flex-direction: column;
@@ -54,15 +58,14 @@ export default {
     flex-wrap: wrap;
     text-align: left;
     font-size: 14px;
-    padding: 8px 0;
+    padding: 8px;
     border: 1px solid black;
-    border: 8px solid #9eb737;
+    @include border;
   }
 
   .mini_output_holder{
     background-color: #ccdaa6;
-    margin: 24px 0;
-    border: 8px solid #9eb737;
+    margin-bottom: 24px;
     display: flex;
     width: 200px;
     flex-wrap: wrap;

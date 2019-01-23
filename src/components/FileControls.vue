@@ -44,11 +44,12 @@ export default {
 
 
 <style lang="scss">
+@import '../scss/main';
   input{
     width:28%;
     background: transparent;
     border: none;
-    border-bottom: 2px solid #9eb737;
+    border-bottom: 2px solid $color__pink;
   }
 
   .file__description{
@@ -72,7 +73,7 @@ export default {
     left:200px;
     width: 68px;
     height: 50px;
-    border:4px solid #9eb737;
+    @include border;
     transition: all .25s ease-in-out
   }
 
