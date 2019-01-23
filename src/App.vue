@@ -1,8 +1,5 @@
 <template>
   <div id="app">
-    <!-- <header id="header">
-      <h1 class="heading__primary">Gameboy Tile Generator</h1> 
-    </header> -->
     <div class="flex-row">
       <section class="description">
         <h1 class="heading__primary">This is a Gameboy Tile Generator.</h1>
@@ -84,7 +81,7 @@ body{
   height:940px;
   width: 20%;
   min-width: 415px;
-  margin-right:3%;
+  margin-right:40px;
 }
 
 #header{
@@ -98,6 +95,10 @@ body{
 }
 
 .flex-row {
+  padding-top: 60px;
+  @include respond(medium){
+    padding-top:10px;
+  }
   display: flex;
   justify-content: center;
 

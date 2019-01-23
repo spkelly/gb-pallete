@@ -31,7 +31,6 @@ export default {
     margin-left: 40px;
     display: flex;
     flex-wrap: wrap;
-    width:680px;
   }
 
 </style>
