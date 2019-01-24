@@ -1,4 +1,5 @@
 import * as types from '../types';
+import { exportToC, exportToASM } from '../../services/DownloaderServices';
 
 const state = {
   fileName:"TileData",
@@ -16,6 +17,15 @@ const mutations = {
   }
 }
 
+const getters = {
+  [types.GET_FILE_INFO]: state =>{
+    return {
+      fileName:state.fileName,
+      type:state.fileType
+    }
+  }
+}
+
 const actions = {
   [types.CHANGE_FILE_NAME](state,fileName){
     if(fileName.length > 3){
@@ -29,6 +39,16 @@ const actions = {
     else{
       state.commit(types.SET_FILE_TYPE,"C");
     }
+  },
+  [types.DOWNLOAD]({getters}){
+    let fileInfo = getters[types.GET_FILE_INFO];
+    let data = getters[types.GET_CONVERTED_PIXEL_DATA];
+    if(fileInfo.fileType == "C"){
+      exportToC(data,fileInfo.fileName)
+    }
+    else{
+      exportToASM(data,fileInfo.fileName)
+    }
   }
 }
 
@@ -36,5 +56,6 @@ const actions = {
 export default{
   state,
   mutations,
+  getters,
   actions
 }

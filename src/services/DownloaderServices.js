@@ -24,16 +24,16 @@ function download(filename,blob){
   URL.revokeObjectURL(objectUrl);
 }
 
-export function exportToC(data){
+export function exportToC(data,name){
   let fileData = generateCFile(data);
   let fileBlob = new Blob(fileData,{type:'text/x-c;charset=utf-8'});
-  download('test-header.h',fileBlob);
+  download(`${name}.h`,fileBlob);
 }
 
-export function exportToASM(data){
+export function exportToASM(data,name){
   let fileData = generateASMFile(data);
   let fileBlob = new Blob(fileData,{type:'text/x-asm;charset=utf-8'});
-  download('test.asm',fileBlob);
+  download(`${name}.inc`,fileBlob);
 }
 // TODO these functions might be uneeded
 function generateASMFile(data){

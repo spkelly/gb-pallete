@@ -16,6 +16,7 @@ export const RESET = "reset";
 // File
 export const CHANGE_FILE_NAME = "changeFileName"
 export const CHANGE_FILE_TYPE = "changeFileType";
+export const DOWNLOAD = "download";
 
 // Palette
 export const CHANGE_COLOR = "changeColor";
@@ -41,4 +42,5 @@ export const RESET_MATRIX = "resetMatrix";
 export const GET_CONVERTED_PIXEL_DATA = "getConvertedPixelData";
 export const GET_PIXEL_MATRIX = "getPixelMatrix";
 export const GET_CANVAS = "getCanvas";
+export const GET_FILE_INFO = "getFileInfo";
 
