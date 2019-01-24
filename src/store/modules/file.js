@@ -19,15 +19,15 @@ const mutations = {
 const actions = {
   [types.CHANGE_FILE_NAME](state,fileName){
     if(fileName.length > 3){
-      state.commit(SET_FILE_NAME, fileName)
+      state.commit(types.SET_FILE_NAME, fileName)
     }
   },
   [types.CHANGE_FILE_TYPE](state,toggle){
     if(toggle){
-      state.commit(SET_FILE_TYPE,"ASM");
+      state.commit(types.SET_FILE_TYPE,"ASM");
     }
     else{
-      state.commit(SET_FILE_TYPE,"C");
+      state.commit(types.SET_FILE_TYPE,"C");
     }
   }
 }

@@ -2,8 +2,7 @@
   <section>
   <div class="section__header">
     <label class="header__sub">Tile Name:</label>
-    <input type="text"/><br>
-   
+    <input :value="fileName" @input="updateFileName" type="text" /><br>
   </div>
   <div class="file__selection-holder" @click=changeFileType>
      <label class="header__sub">File Type:</label>
@@ -22,20 +21,28 @@
 
 
 <script>
-import {CHANGE_FILE_TYPE} from '../store/types';
+import {CHANGE_FILE_TYPE,CHANGE_FILE_NAME} from '../store/types';
+import {mapState} from 'vuex'
 
 export default {
   name:"FileControls",
   data(){
     return({
-      isToggled:false
-    })
-    
+      isToggled:false,
+    })    
+  },
+  computed:{
+    ...mapState({
+      fileName: state => state.File.fileName
+      })
   },
   methods:{
     changeFileType(){
       this.isToggled = !this.isToggled;
       this.$store.dispatch(CHANGE_FILE_TYPE, this.isToggled);
+    },
+    updateFileName(e){
+      this.$store.dispatch(CHANGE_FILE_NAME,e.target.value)
     }
   }
 }
