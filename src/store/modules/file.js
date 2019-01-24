@@ -41,14 +41,17 @@ const actions = {
     }
   },
   [types.DOWNLOAD]({getters}){
-    let fileInfo = getters[types.GET_FILE_INFO];
-    let data = getters[types.GET_CONVERTED_PIXEL_DATA];
-    if(fileInfo.fileType == "C"){
-      exportToC(data,fileInfo.fileName)
-    }
-    else{
-      exportToASM(data,fileInfo.fileName)
-    }
+    return new Promise((resolve)=>{
+      let fileInfo = getters[types.GET_FILE_INFO];
+      let data = getters[types.GET_CONVERTED_PIXEL_DATA];
+      if(fileInfo.fileType == "C"){
+        exportToC(data,fileInfo.fileName)
+      }
+      else{
+        exportToASM(data,fileInfo.fileName)
+      }
+      resolve();
+    })
   }
 }
 
