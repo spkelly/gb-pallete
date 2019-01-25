@@ -33,7 +33,7 @@ import {CANVAS_MED,CANVAS_LARGE} from '../services/constants';
       this.ctx = canvas.getContext("2d");
     }
   }
-</script lang="scss">
+</script>
 
 <style lang="css">
   .mini_output{

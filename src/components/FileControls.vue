@@ -1,9 +1,7 @@
 <template>
-  <section>
-  <div class="section__header">
+  <section class="file__controls">
     <label class="header__sub">Tile Name:</label>
     <input :value="fileName" @input="updateFileName" type="text" /><br>
-  </div>
   <div class="file__selection-holder" @click=changeFileType>
      <label class="header__sub">File Type:</label>
     <div class="file__selector" v-bind:class="{toggled:isToggled}"></div>
@@ -52,6 +50,9 @@ export default {
 
 <style lang="scss">
 @import '../scss/main';
+  .file__controls{
+    padding: 20px 0;
+  }
   input{
     width:28%;
     background: transparent;
