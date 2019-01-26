@@ -3,7 +3,7 @@
     <div class="flex-row">
       <section class="description">
         <h1 class="heading__primary">This is a Gameboy Tile Generator.</h1>
-        <p class="paragraph">This tool is built to assist in designing and generating the data needed display your drawn image to the game boy screen.</p>
+        <p class="paragraph">This tool is built to assist in designing and generating the data needed to display your drawn image to the game boy screen.</p>
         <p class="paragraph">More information on programming for the gameboy can be found below.</p>
 
 <a class="link" href="https://github.com/gbdev/awesome-gbdev">Awesome GB Dev github</a>
