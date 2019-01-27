@@ -11,14 +11,14 @@
       <MiniOutput />
       <MiniOutput />
     </div>
-    <div class="out">
+    <!-- <div class="out">
     <div class="output" >
       <code v-for="(row, index) in pixelMatrix" :key="index">
         {{row.join()}}
       </code>
     </div>
     
-  </div>
+  </div> -->
   
   </section>
   
