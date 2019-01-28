@@ -4,7 +4,7 @@
 
 
 <script>
-import {CANVAS_MED,CANVAS_LARGE} from '../services/constants';
+import {GRID_WIDTH,GRID_HEIGHT} from '../services/constants';
   export default{
     name:"MiniOuput",
 
@@ -28,8 +28,8 @@ import {CANVAS_MED,CANVAS_LARGE} from '../services/constants';
     },
     mounted(){
       let canvas = this.$refs.mini_output;
-      canvas.width = CANVAS_MED;
-      canvas.height = CANVAS_MED;
+      canvas.width = GRID_WIDTH;
+      canvas.height = GRID_HEIGHT;
       this.ctx = canvas.getContext("2d");
     }
   }
