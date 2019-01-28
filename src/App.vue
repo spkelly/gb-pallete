@@ -5,10 +5,8 @@
         <h1 class="heading__primary">This is a Gameboy Tile Generator.</h1>
         <p class="paragraph">This tool is built to assist in designing and generating the data needed to display your drawn image to the game boy screen.</p>
         <p class="paragraph">More information on programming for the gameboy can be found below.</p>
-
-<a class="link" href="https://github.com/gbdev/awesome-gbdev">Awesome GB Dev github</a>
-<a class="link" href="https://www.youtube.com/watch?v=HyzD8pNlpwI">Ultimate Gameboy Talk</a>
-
+        <a class="link" href="https://github.com/gbdev/awesome-gbdev">Awesome GB Dev github</a>
+        <a class="link" href="https://www.youtube.com/watch?v=HyzD8pNlpwI">Ultimate Gameboy Talk</a>
         <FileControls /> 
         <div>
           <DownloadButton />
@@ -97,7 +95,6 @@ body{
 
 
 .description{
-  height:940px;
   width: 20%;
   min-width: 415px;
   margin-right:40px;
@@ -115,8 +112,15 @@ body{
 
 .flex-row {
   padding-top: 60px;
+  padding-bottom: 200px;
   @include respond(medium){
-    padding-top:10px;
+        padding-top:10px;
+  }
+    @include respond(small){
+    padding-bottom: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   display: flex;
   justify-content: center;

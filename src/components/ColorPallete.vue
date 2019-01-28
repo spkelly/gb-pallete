@@ -52,7 +52,7 @@ export default {
 
   #pallete {
   position: relative;
-
+  width: 48px;
   align-self: top;
   margin-top:100px;
   height: fit-content;
