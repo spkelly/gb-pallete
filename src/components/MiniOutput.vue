@@ -1,43 +1,39 @@
 <template>
-  <canvas ref="mini_output" class="mini_output"></canvas>
+  <section>
+    <div class="section__header">
+    <h2 class="header__sub">
+      Mini Output
+    </h2>
+    </div>
+    <div class="mini_output_holder">
+      <MiniOutputCanvas />
+      <MiniOutputCanvas />
+      <MiniOutputCanvas />
+      <MiniOutputCanvas />
+    </div>
+  </section>
+
 </template>
 
 
 <script>
-import {GRID_WIDTH,GRID_HEIGHT} from '../services/constants';
-  export default{
-    name:"MiniOuput",
+import MiniOutputCanvas from './MiniOutputCanvas';
 
-    data(){
-      return{
-        ctx:{}
-      }
-    },
 
-    computed:{
-      currentImageData(){
-        return this.$store.state.Output.imageData
-      }
-    },
-    watch:{
-      currentImageData(newData){
-        if(newData){ 
-          this.ctx.putImageData(newData,0,0);
-        }  
-      }
-    },
-    mounted(){
-      let canvas = this.$refs.mini_output;
-      canvas.width = GRID_WIDTH;
-      canvas.height = GRID_HEIGHT;
-      this.ctx = canvas.getContext("2d");
-    }
-  }
+export default {
+name:"MiniOutput",
+components:{
+  MiniOutputCanvas
+}  
+}
 </script>
 
-<style lang="css">
-  .mini_output{
-    width:100px;
-    height:100px;
+<style lang="scss">
+    .mini_output_holder{
+    background-color: #ccdaa6;
+    margin-bottom: 24px;
+    display: flex;
+    width: 200px;
+    flex-wrap: wrap;
   }
 </style>

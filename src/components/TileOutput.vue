@@ -1,27 +1,13 @@
 <template>
   <section>
-    <div class="section__header">
-      <h2 class="header__sub">
-        Mini Output
-      </h2>
-    </div>
-    <div class="mini_output_holder">
-      <MiniOutput />
-      <MiniOutput />
-      <MiniOutput />
-      <MiniOutput />
-    </div>
     <!-- <div class="out">
     <div class="output" >
       <code v-for="(row, index) in pixelMatrix" :key="index">
         {{row.join()}}
       </code>
     </div>
-    
-  </div> -->
-  
+    </div> -->
   </section>
-  
 </template>
 
 <script>
@@ -63,13 +49,7 @@ export default {
     @include border;
   }
 
-  .mini_output_holder{
-    background-color: #ccdaa6;
-    margin-bottom: 24px;
-    display: flex;
-    width: 200px;
-    flex-wrap: wrap;
-  }
+
 
   .output pre {
     margin: 0;
