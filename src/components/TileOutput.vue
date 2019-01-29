@@ -1,12 +1,13 @@
 <template>
-  <section>
-    <!-- <div class="out">
+  <section >
+    <div class="button" @click="visible = !visible">{{visible?'Hide':'Show'}}</div>
+    <div v-if="visible" class="out">
     <div class="output" >
       <code v-for="(row, index) in pixelMatrix" :key="index">
         {{row.join()}}
       </code>
     </div>
-    </div> -->
+    </div>
   </section>
 </template>
 
@@ -15,6 +16,11 @@ import MiniOutput from './MiniOutput.vue';
 
 export default {
   name: "TileOutput",
+  data(){
+    return({
+      visible:false
+    })
+  },
   props:{
     tileData:Array
   },

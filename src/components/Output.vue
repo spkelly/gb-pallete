@@ -1,8 +1,8 @@
 <template>
 <section id="output">
   <MiniOutput />
-  <TileOutput />
   <DataOutput />
+  <TileOutput />
 </section>
 </template>
 
@@ -28,9 +28,10 @@ export default {
 <style lang="scss">
 
   #output{
-    width: fit-content;
+    height: 610px;
     margin-left: 40px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
   }
 
