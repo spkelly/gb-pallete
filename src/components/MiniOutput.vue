@@ -1,10 +1,5 @@
 <template>
   <section>
-    <div class="section__header">
-    <h2 class="header__sub">
-      Mini Output
-    </h2>
-    </div>
     <div class="mini_output_holder">
       <MiniOutputCanvas />
       <MiniOutputCanvas />

@@ -1,8 +1,10 @@
 <template>
 <section id="output">
-  <MiniOutput />
+  <TabViewer :tabNames="['Mini Output','Data Grid']">
+    <MiniOutput />
+    <TileOutput />
+  </TabViewer>
   <DataOutput />
-  <TileOutput />
 </section>
 </template>
 
@@ -11,13 +13,15 @@
 import DataOutput from './DataOutput';
 import MiniOutput from './MiniOutput';
 import TileOutput from './TileOutput';
+import TabViewer from './TabViewer';
 
 export default {
   name:"Output",
   components:{
     DataOutput,
     MiniOutput,
-    TileOutput
+    TileOutput,
+    TabViewer
   }
   
 }
@@ -28,7 +32,6 @@ export default {
 <style lang="scss">
 
   #output{
-    height: 610px;
     margin-left: 40px;
     display: flex;
     flex-direction: column;
