@@ -32,8 +32,6 @@ import {GRID_WIDTH,GRID_HEIGHT} from '../services/constants';
       if(this.$store.state.Output.imageData.data){
         this.ctx.putImageData(this.$store.state.Output.imageData,0,0);
       }
-
-
     }
   }
 </script>

@@ -30,12 +30,17 @@ export default {
 
 
 <style lang="scss">
+@import '../scss/main.scss';
 
   #output{
     margin-left: 40px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    @include respond(small){
+      width: 20%;
+    }
+    
   }
 
 </style>

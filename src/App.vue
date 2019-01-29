@@ -98,6 +98,9 @@ body{
   width: 20%;
   min-width: 415px;
   margin-right:40px;
+  @include respond(small){
+    align-self: center;
+  }
 }
 
 #header{
@@ -121,8 +124,6 @@ body{
     @include respond(small){
     padding-bottom: 0;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
   }
   display: flex;
 
