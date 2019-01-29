@@ -1,6 +1,6 @@
 <template>
   <section >
-    <div class="button" @click="visible = !visible">{{visible?'Hide':'Show'}}</div>
+    <button class="button" @click="visible = !visible">{{visible?'Hide':'Show'}}</button>
     <div v-if="visible" class="out">
     <div class="output" >
       <code v-for="(row, index) in pixelMatrix" :key="index">

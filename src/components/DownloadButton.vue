@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="buttonHolder">
-      <div class="button" @click="reset">
+      <button class="button" @click="reset">
         clear grid
-      </div>
-      <div class="button" @click="download">
+      </button>
+      <button class="button" @click="download">
         generate data
-      </div>
+      </button>
     </div>
     
   </div>
