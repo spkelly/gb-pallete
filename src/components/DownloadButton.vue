@@ -1,14 +1,9 @@
 <template>
   <div>
     <div class="buttonHolder">
-      <button class="button" @click="reset">
-        clear grid
-      </button>
-      <button class="button" @click="download">
-        generate data
-      </button>
+      <button class="button" @click="reset">clear grid</button>
+      <button class="button" @click="download"> generate data</button>
     </div>
-    
   </div>
 </template>
 
