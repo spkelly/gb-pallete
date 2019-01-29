@@ -58,8 +58,6 @@ export default {
   height: fit-content;
   justify-content: center;
   flex-direction: column;
-  border-top: 8px solid #9eb737;
-  border-bottom: 8px solid #9eb737;
   background-color: #ccdba4;
 }
 
@@ -69,19 +67,6 @@ export default {
   height: 40px;
   border: 4px solid black;
   background-color: black;
-}
-
-#pallete:before {
-  content: '';
-  top: 0;
-  width: 8px;
-  height: 100%;
-  background: #9eb737;
-  position: absolute;
-}
-
-#pallete:before {
-  left: -8px;
 }
 
 
