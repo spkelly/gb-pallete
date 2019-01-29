@@ -34,9 +34,7 @@ export default {
 
 <style lang="scss">
   @import '../scss/main';
-  .section__header{
-    margin-bottom: 24px;
-  }
+
   .output {
     display: flex;
     flex-direction: column;
@@ -45,6 +43,8 @@ export default {
     text-align: left;
     font-size: 14px;
     padding: 8px;
+
+
   }
 
 

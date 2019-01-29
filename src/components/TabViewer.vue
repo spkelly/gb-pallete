@@ -50,9 +50,8 @@ export default {
 
 .tab-viewer{
   min-width: 220px;
-  
-  border: 4px solid white;
-  @include border;
+  width:fit-content;
+  border-top:none;
 }
 .tab-viewer__header{
   font-size: 2rem;
@@ -62,6 +61,8 @@ export default {
 .selected{
   background-color: $color__pink;
   color: $color__dark__pink;
+  border-top-left-radius: 8px; 
+  border-top-right-radius: 8px;
 }
 
 .tab-viewer__content{
@@ -71,8 +72,9 @@ export default {
   justify-content: center;
   align-items: center;
   margin:0 auto;
-  width: 100%;
   min-height: 300px;
+  @include border;
+  border-top:none;
 }
 .tab-viewer__tab{
   cursor: pointer;
@@ -81,7 +83,7 @@ export default {
   border-bottom: 4px solid $color__pink;
 }
 .tab-viewer__tab:not(:last-child){
-  border-right: 4px solid $color__pink
+  border-bottom: 4px solid $color__pink;
 }
 
 </style>

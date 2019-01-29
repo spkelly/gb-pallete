@@ -1,7 +1,7 @@
 <template>
     <div class="buttonHolder">
-      <button class="button" @click="reset">clear grid</button>
-      <button class="button" @click="download"> generate data</button>
+      <button class="button" @click="download"> Download</button>
+      <button class="button" @click="reset">Clear</button>
     </div>
 </template>
 
@@ -24,6 +24,7 @@ export default {
 <style lang="scss">
 @import '../scss/main';
   .button {
+    border-radius: 10px;
     border: none;
     display:inline-block;
     cursor: pointer;

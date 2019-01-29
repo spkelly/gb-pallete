@@ -1,7 +1,7 @@
 <template>
   <section class="output-section">
     <div class="section__header">
-      <h2 class="header__sub">Pixel Data</h2>
+      <h2 class="header__output">Pixel Data</h2>
     </div>
     <div class="data__output">
       <p class="data__output-row" v-for="(data,index) in convertedPixelData" v-bind:key="index">
@@ -33,13 +33,23 @@ export default{
 <style lang="scss">
   @import '../scss/main';
 
-  .header__sub{
-   font-size: 26px;
+  .output-section{
+    margin-top: 20px;
+  }
+
+  .header__output{
+    font-size: 2rem;
+    width: 108px;
+    background-color: $color__pink;
+    color: $color__dark__pink;
+    padding:10px;
+    font-weight: 400;
+    border-top-left-radius: 8px; 
+    border-top-right-radius: 8px;
   }
 
   .data__output{
     @include border;
-    margin: 0 auto;
     display:flex;
     flex-wrap: wrap;
     max-width: 100px;

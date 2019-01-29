@@ -74,8 +74,7 @@ export default{
 </script>
 
 <style lang="scss">
-  .section__header{
-  }
+  
   .file_name{
     text-align: center;
     width: 80%;
