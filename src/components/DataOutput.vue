@@ -32,9 +32,6 @@ export default{
 
 <style lang="scss">
   @import '../scss/main';
-  .output-section{
-    margin-left: 40px;
-  }
 
   .header__sub{
    font-size: 26px;
@@ -42,6 +39,7 @@ export default{
 
   .data__output{
     @include border;
+    margin: 0 auto;
     display:flex;
     flex-wrap: wrap;
     max-width: 100px;
