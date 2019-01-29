@@ -113,6 +113,8 @@ body{
 .flex-row {
   padding-top: 60px;
   padding-bottom: 200px;
+  margin: 0 auto;
+  max-width: 1400px;
   @include respond(medium){
         padding-top:10px;
   }
@@ -123,7 +125,6 @@ body{
     align-items: center;
   }
   display: flex;
-  justify-content: center;
 
 }
 </style>
