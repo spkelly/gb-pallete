@@ -53,6 +53,7 @@ export default{
   }
 
   .data__output-row{
+    flex: 1 0 50%;
     text-align: center;
     margin: 0;
     display: block;
