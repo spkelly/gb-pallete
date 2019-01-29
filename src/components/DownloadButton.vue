@@ -1,10 +1,8 @@
 <template>
-  <div>
     <div class="buttonHolder">
       <button class="button" @click="reset">clear grid</button>
       <button class="button" @click="download"> generate data</button>
     </div>
-  </div>
 </template>
 
 <script>
@@ -25,17 +23,14 @@ export default {
 
 <style lang="scss">
 @import '../scss/main';
-
-  .buttonHolder {
-    margin-top:20px;
-  }
   .button {
-    display: inline;
+    border: none;
+    display:inline-block;
     cursor: pointer;
     font-size: 32px;
     color: $color__dark__pink;
     background-color: $color__pink;
+    margin: 10px;
     padding: 10px;
-    margin: 20px;
   }
 </style>
