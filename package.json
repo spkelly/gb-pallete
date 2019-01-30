@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "test": "mocha */**/*.test.* --compilers js:babel/register",
     "build:dev": "webpack --mode development"
   },
   "dependencies": {
@@ -15,10 +16,10 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.47",
+    "@babel/register": "latest",
     "@vue/cli-plugin-babel": "^3.0.0",
     "@vue/cli-plugin-eslint": "^3.0.0",
     "@vue/cli-service": "latest",
-    "babel-core": "^6.26.3",
     "babel-loader": "^8.0.2",
     "babel-preset-es2015": "^6.24.1",
     "chai": "^4.2.0",
@@ -26,6 +27,7 @@
     "html-webpack-plugin": "^3.2.0",
     "mocha": "^5.2.0",
     "path": "^0.12.7",
+    "should": "^13.2.3",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "vue-loader": "^15.4.2",
     "vue-style-loader": "^4.1.2",
@@ -43,7 +45,8 @@
   "eslintConfig": {
     "root": true,
     "env": {
-      "node": true
+      "node": true,
+      "mocha": true
     },
     "extends": [
       "plugin:vue/essential",

@@ -1,5 +1,7 @@
-import {assert} from 'chai';
-import {convertToBase} from '../ConverterServices';
+var assert = require('chai').assert;
+var convertToBase = require('../ConverterServices').convertToBase;
+
+require('')
 
 describe('ConverterServices.js',()=>{
   describe('ConvertToBase()',()=>{

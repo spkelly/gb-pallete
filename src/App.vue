@@ -126,6 +126,6 @@ body{
     flex-direction: column;
   }
   display: flex;
-
+  justify-content: space-evenly;
 }
 </style>

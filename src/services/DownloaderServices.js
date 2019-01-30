@@ -9,6 +9,7 @@ const ASM_PREFIX = '$';
 const VARIABLE_NAME = 'TileData';
 
 
+
 function download(filename,blob){
   var link = document.createElement('a');
   let objectUrl = URL.createObjectURL(blob);
@@ -94,6 +95,11 @@ function generateASMBody(data){
 }
 
 
+export function validateFilename(fileName){
+  let illegalCharacters = /<|>|;/;
+  return illegalCharacters.test(fileName);
+}
+
 
 
 // function captilizeLetters(string){
@@ -101,6 +107,3 @@ function generateASMBody(data){
 //     string.ffdsfcharCodeAt(i);
 //   }
 // }
-
-
-
