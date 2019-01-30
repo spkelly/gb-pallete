@@ -1,12 +1,12 @@
-var expect = require("chai").expect;
-var DownloaderServices = require('../DownloaderServices');
+import {expect} from 'chai';
+import {validateFilename} from '../DownloaderServices';
 
-describe('ConverterServices.js',()=>{
+describe('DownloaderServices.js',()=>{
   describe('validateFilname()',()=>{
     it('should pass a legal fileName',()=>{
       let fileName = "legalfileName";
-      let result = DownloaderServices.validateFilename(fileName);
-      expect(result).to.be.true();
+      let result = validateFilename(fileName);
+      expect(result).to.be.true;
     })
   });
 });

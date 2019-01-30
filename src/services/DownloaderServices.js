@@ -96,8 +96,8 @@ function generateASMBody(data){
 
 
 export function validateFilename(fileName){
-  let illegalCharacters = /<|>|;/;
-  return illegalCharacters.test(fileName);
+  let illegalCharacters = /<|>|;|:/;
+  return !illegalCharacters.test(fileName);
 }
 
 

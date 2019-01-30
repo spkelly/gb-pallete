@@ -37,7 +37,7 @@ export function convertPixelMatrix(pixelMatrix){
     target: target base
     number: numerical string to convert
 */
-function convertToBase(base, target, number){
+export function convertToBase(base, target, number){
   return parseInt(number, base).toString(target);
 }
 
@@ -74,4 +74,4 @@ function padStrings(strings,constraint){
     }
     return string;
   });
-} 
+}

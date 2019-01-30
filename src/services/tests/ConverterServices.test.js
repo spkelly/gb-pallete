@@ -1,7 +1,6 @@
-var assert = require('chai').assert;
-var convertToBase = require('../ConverterServices').convertToBase;
+import {expect} from 'chai';
+import {convertToBase} from '../ConverterServices';
 
-require('')
 
 describe('ConverterServices.js',()=>{
   describe('ConvertToBase()',()=>{
@@ -11,15 +10,7 @@ describe('ConverterServices.js',()=>{
       const binary = "10111";
 
       let result = convertToBase(10,2,base10);
-      assert(result).to.equal(binary);
-    });
-
-    it('should convert multiple numerical strings to target base',()=>{
-      const base10 = ["23","42"];
-      const binary = ["10111","101010"];
-
-      let result = convertToBase(10,2,base10);
-      assert(result).to.equal(binary);
+      expect(result).to.equal(binary);
     });
 
   });

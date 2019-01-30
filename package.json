@@ -6,7 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "mocha */**/*.test.* --compilers js:babel/register",
+    "test": "vue-cli-service test:unit src/**/**/*.test.js",
     "build:dev": "webpack --mode development"
   },
   "dependencies": {
@@ -15,10 +15,11 @@
     "vue": "^2.5.17"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.47",
-    "@babel/register": "latest",
+    "@babel/core": "^7.0.0",
+    "@babel/register": "^7.0.0",
     "@vue/cli-plugin-babel": "^3.0.0",
     "@vue/cli-plugin-eslint": "^3.0.0",
+    "@vue/cli-plugin-unit-mocha": "^3.3.0",
     "@vue/cli-service": "latest",
     "babel-loader": "^8.0.2",
     "babel-preset-es2015": "^6.24.1",
