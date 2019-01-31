@@ -7,6 +7,9 @@ export const SET_IMAGE_DATA = "SetImageData";
 export const SET_CONVERTED_PIXEL_DATA = "setConvertedPixelData";
 export const SET_SELECTED_COLOR = "setSelectedColor";
 export const SET_SELECTED_PALETTE_VALUE = "setSelectedPaletteValue"
+export const SET_MODAL_MESSAGE = "setModalMessage";
+export const TOGGLE_MODAL = 'toggleModal';
+export const SET_ERROR = 'setError';
 
 /*Actions*/
 
@@ -43,4 +46,5 @@ export const GET_CONVERTED_PIXEL_DATA = "getConvertedPixelData";
 export const GET_PIXEL_MATRIX = "getPixelMatrix";
 export const GET_CANVAS = "getCanvas";
 export const GET_FILE_INFO = "getFileInfo";
+export const GET_FILE_MSG = "getFileMsg";
 

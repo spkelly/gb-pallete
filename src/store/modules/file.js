@@ -23,6 +23,11 @@ const getters = {
       fileName:state.fileName,
       type:state.fileType
     }
+  },
+  [types.GET_FILE_MSG]: state =>{
+
+    let fileSuffix = state.fileType == "C"?'.h':'.inc';
+    return `Are you sure you would like to save file: ${state.fileName}${fileSuffix}?`;
   }
 }
 
@@ -41,6 +46,7 @@ const actions = {
     }
   },
   [types.DOWNLOAD]({getters}){
+    console.log('hello')
     return new Promise((resolve)=>{
       let fileInfo = getters[types.GET_FILE_INFO];
       let data = getters[types.GET_CONVERTED_PIXEL_DATA];

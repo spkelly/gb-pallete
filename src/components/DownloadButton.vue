@@ -1,20 +1,25 @@
 <template>
     <div class="buttonHolder">
-      <button class="button" @click="download"> Download</button>
+      <button class="button" @click="displayModal(fileMessage,false)"> Download</button>
       <button class="button" @click="reset">Clear</button>
     </div>
 </template>
 
 <script>
-import {mapActions} from 'vuex'
+import {mapActions, mapGetters} from 'vuex'
 import { RESET, DOWNLOAD } from '../store/types';
 export default {
   name: "DownloadButton",
-
+  computed:{
+    ...mapGetters({
+      fileMessage: 'getFileMsg'
+    })
+  },
   methods:{
     ...mapActions({
       download: DOWNLOAD,
-      reset: RESET
+      reset: RESET,
+      displayModal: 'displayModal'
     })
   }
 }

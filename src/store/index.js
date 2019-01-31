@@ -2,15 +2,22 @@ import Canvas from './modules/canvas';
 import File from './modules/file';
 import Palette from './modules/palette';
 import Output from './modules/output';
+import modal from './modules/modal';
 import {RESET, CLEAR_CANVAS, UPDATE_OUTPUT} from './types';
 
 const store = {
   modules:{
     Canvas,
+    modal,
     File,
     Palette,
     Output
   },
+
+  mutations:{
+
+  },
+
   
   actions:{
     [RESET]({dispatch}){

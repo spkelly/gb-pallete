@@ -16,6 +16,7 @@
       <Console v-on:canvaschange="handleCanvasChange" />
       <Output />
     </div>
+  <Modal v-if="modalVisible" :onConfirm="download"/>
   </div>
 </template>
 
@@ -26,8 +27,9 @@ import DownloadButton from './components/DownloadButton.vue';
 import FileControls from './components/FileControls';
 import Output from './components/Output';
 import Console from './components/console/Console';
+import Modal from './components/Modal.vue';
 import {mapState, mapActions} from 'vuex';
-import { UPDATE_OUTPUT } from './store/types';
+import { UPDATE_OUTPUT, DOWNLOAD } from './store/types';
 
 export default {
   // TODO: move styles to other components
@@ -37,7 +39,8 @@ export default {
   computed:mapState({
     tileData: state => state.Output.pixelMatrix,
     selectedColor: state => state.Palette.selectedColor,
-    selectedPallateData: state =>  state.Palette.selectedPalleteValue
+    selectedPallateData: state =>  state.Palette.selectedPalleteValue,
+    modalVisible: state => state.modal.modalVisible
     })
   ,
 
@@ -45,6 +48,7 @@ export default {
     Output,
     colorPallete, 
     TileCanvas,
+    Modal,
     DownloadButton,
     FileControls,
     Console
@@ -60,7 +64,7 @@ export default {
       this.$store.dispatch(UPDATE_OUTPUT,tileData);
     },
 
-    ...mapActions(['shiftLeft','shiftRight','shiftUp','shiftDown'])
+    ...mapActions(['shiftLeft','shiftRight','shiftUp','shiftDown',DOWNLOAD])
   },
   mounted() {
     let data = Array(8).fill(null).map(()=>Array(8).fill(0));
@@ -73,6 +77,9 @@ export default {
 @import './scss/main.scss';
 @import './scss/base';
 @import './scss/typography';
+body{
+  width: 100vw;
+}
 
 .link:visited{
   color: $color__dark__pink; 
@@ -100,6 +107,8 @@ body{
   margin-right:40px;
   @include respond(small){
     align-self: center;
+    margin: 0;
+    
   }
 }
 
@@ -109,7 +118,6 @@ body{
 
 #app {
   background-color: $color__background;
-  min-width: 960px;
   text-align: center;
 }
 
@@ -123,7 +131,8 @@ body{
   }
     @include respond(small){
     padding-bottom: 0;
-    flex-direction: column;
+    flex-wrap: wrap;
+    // flex-direction: column;
   }
   display: flex;
   justify-content: space-evenly;
