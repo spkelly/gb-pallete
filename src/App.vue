@@ -12,9 +12,12 @@
           <DownloadButton />
         </div>
       </section>
+      <div class="right">
       <colorPallete />
       <Console v-on:canvaschange="handleCanvasChange" />
       <Output />
+      </div>
+      
     </div>
   <Modal v-if="modalVisible" :onConfirm="download"/>
   </div>
@@ -90,6 +93,10 @@ body{
 .link:visited{
   color: $color__dark__pink; 
 }
+.right{
+  width: fit-content;
+  display: flex;
+}
 .link:link{
   color: $color__pink;
 }
@@ -110,7 +117,7 @@ body{
 
 .description{
   max-width: 400px;
-  min-width: 400px;
+  min-width: 300px;
   margin-right:40px;
   @include respond(small){
     align-self: center;
@@ -142,7 +149,7 @@ body{
     flex-wrap: wrap;
     // flex-direction: column;
   }
+  justify-content: center;
   display: flex;
-  justify-content: space-evenly;
 }
 </style>
