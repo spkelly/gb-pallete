@@ -1,13 +1,13 @@
 <template>
     <div class="buttonHolder">
-      <button class="button" @click="displayModal(fileMessage,false)"> Download</button>
+      <button class="button" @click="handleClick"> Download</button>
       <button class="button" @click="reset">Clear</button>
     </div>
 </template>
 
 <script>
 import {mapActions, mapGetters} from 'vuex'
-import { RESET, DOWNLOAD } from '../store/types';
+import { RESET, DOWNLOAD,CHECK_FOR_DOWNLOAD } from '../store/types';
 export default {
   name: "DownloadButton",
   computed:{
@@ -16,8 +16,19 @@ export default {
     })
   },
   methods:{
+    handleClick(){
+      this.checkForDownload().then(()=>{
+        console.log('passed')
+        this.displayModal({message:this.fileMessage,isError:false})
+      },
+      (err)=>{
+        console.log('failed');
+        this.displayModal({message:err,isError:true});
+      })
+    },
     ...mapActions({
       download: DOWNLOAD,
+      checkForDownload: CHECK_FOR_DOWNLOAD,
       reset: RESET,
       displayModal: 'displayModal'
     })

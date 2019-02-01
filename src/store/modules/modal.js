@@ -21,12 +21,12 @@ const mutations = {
 
 
 const actions = {
-  displayModal({commit},message,isError){
+  [types.DISPLAY_MODAL]({commit},{message,isError}){
     commit(types.SET_MODAL_MESSAGE,message);
     commit(types.SET_ERROR,isError);
     commit(types.TOGGLE_MODAL,true);
   },
-  hideModal({commit}){
+  [types.HIDE_MODAL]({commit}){
     commit(types.TOGGLE_MODAL,false);
   }
 }

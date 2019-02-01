@@ -2,7 +2,7 @@
   Author: Sean Kelly
 */
 
-import {COMMENT_HEADER, LINE_WIDTH, ASM_PREFIX, VARIABLE_NAME} from './constants';
+import {COMMENT_HEADER, LINE_WIDTH, HEX_PREFIX, ASM_PREFIX, VARIABLE_NAME} from './constants';
 
 
 function download(filename,blob){
@@ -91,11 +91,26 @@ function generateASMBody(data){
 
 
 export function validateFilename(fileName){
+  if(checkForIllegalCharacters(fileName)){
+    if(fileName.length < 2){
+      throw "File name is too short"
+    }
+    else if(fileName.length > 20){
+      throw "File name is too long"
+    }
+    else{
+      return true
+    }
+  }
+  else{
+    throw "File name includes illegal characters"
+  }
+}
+
+function checkForIllegalCharacters(fileName){
   let illegalCharacters = /<|>|;|:/;
   return !illegalCharacters.test(fileName);
 }
-
-
 
 // function captilizeLetters(string){
 //   for(let i = 0;i < string.length; i++){

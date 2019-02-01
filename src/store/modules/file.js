@@ -1,5 +1,5 @@
 import * as types from '../types';
-import { exportToC, exportToASM } from '../../services/DownloaderServices';
+import { exportToC, exportToASM, validateFilename } from '../../services/DownloaderServices';
 
 const state = {
   fileName:"TileData",
@@ -26,16 +26,14 @@ const getters = {
   },
   [types.GET_FILE_MSG]: state =>{
 
-    let fileSuffix = state.fileType == "C"?'.h':'.inc';
-    return `Are you sure you would like to save file: ${state.fileName}${fileSuffix}?`;
+    let fileSuffix = state.fileType == "C"?'h':'inc';
+    return `Are you sure you would like to save file: ${state.fileName}.${fileSuffix}?`;
   }
 }
 
 const actions = {
   [types.CHANGE_FILE_NAME](state,fileName){
-    if(fileName.length > 3){
       state.commit(types.SET_FILE_NAME, fileName)
-    }
   },
   [types.CHANGE_FILE_TYPE](state,toggle){
     if(toggle){
@@ -45,19 +43,27 @@ const actions = {
       state.commit(types.SET_FILE_TYPE,"C");
     }
   },
-  [types.DOWNLOAD]({getters}){
-    console.log('hello')
+  [types.CHECK_FOR_DOWNLOAD]({getters,commit},){
+    let {fileName} = getters[types.GET_FILE_INFO];
     return new Promise((resolve)=>{
-      let fileInfo = getters[types.GET_FILE_INFO];
-      let data = getters[types.GET_CONVERTED_PIXEL_DATA];
-      if(fileInfo.fileType == "C"){
-        exportToC(data,fileInfo.fileName)
-      }
-      else{
-        exportToASM(data,fileInfo.fileName)
-      }
+      validateFilename(fileName);
       resolve();
     })
+  },
+  [types.DOWNLOAD]({getters}){
+    return new Promise((resolve)=>{
+      let { fileName, type } = getters[types.GET_FILE_INFO];
+      let data = getters[types.GET_CONVERTED_PIXEL_DATA];
+      if(type == "C"){
+        exportToC(data,fileName)
+      }
+      else{
+        exportToASM(data,fileName)
+      }
+      resolve();
+    }).then(null,(reason)=>{
+      console.log('Error in Download: ',reason);
+    });
   }
 }
 

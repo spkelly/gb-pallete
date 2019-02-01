@@ -19,6 +19,7 @@ export const RESET = "reset";
 // File
 export const CHANGE_FILE_NAME = "changeFileName"
 export const CHANGE_FILE_TYPE = "changeFileType";
+export const CHECK_FOR_DOWNLOAD = "checkForDownload";
 export const DOWNLOAD = "download";
 
 // Palette
@@ -40,6 +41,10 @@ export const SHIFT_DATA_DOWN = "shiftDataDown";
 export const UPDATE_OUTPUT = "updateOutput";
 export const CONVERT_PIXEL_DATA = "convertPixelMatrix";
 export const RESET_MATRIX = "resetMatrix";
+
+// Modal 
+export const DISPLAY_MODAL = "displayModal"
+export const HIDE_MODAL = "hideModal";
 
 /* Getters */
 export const GET_CONVERTED_PIXEL_DATA = "getConvertedPixelData";

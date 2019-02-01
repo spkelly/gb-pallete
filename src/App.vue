@@ -29,7 +29,7 @@ import Output from './components/Output';
 import Console from './components/console/Console';
 import Modal from './components/Modal.vue';
 import {mapState, mapActions} from 'vuex';
-import { UPDATE_OUTPUT, DOWNLOAD } from './store/types';
+import { UPDATE_OUTPUT, DOWNLOAD, DISPLAY_MODAL } from './store/types';
 
 export default {
   // TODO: move styles to other components
@@ -64,9 +64,15 @@ export default {
       this.$store.dispatch(UPDATE_OUTPUT,tileData);
     },
 
-    ...mapActions(['shiftLeft','shiftRight','shiftUp','shiftDown',DOWNLOAD])
+    ...mapActions(['shiftLeft','shiftRight','shiftUp','shiftDown',DOWNLOAD,DISPLAY_MODAL])
   },
   mounted() {
+    if(navigator.userAgent.match(navigator.userAgent.match(/Android/i)
+                              || navigator.userAgent.match(/webOS/i)
+                              || navigator.userAgent.match(/iPhone/i))){
+     this[DISPLAY_MODAL]({message:"It appears that you are viewing this on a mobile device. This version of the site is still under construction, and may not be functional at this time. Please check back later...",isError:true})
+      
+    }
     let data = Array(8).fill(null).map(()=>Array(8).fill(0));
     this.$store.dispatch(UPDATE_OUTPUT,data);
   },
@@ -98,12 +104,13 @@ ul{
 }
 body{
   margin: 0;
+  
 }
 
 
 .description{
-  width: 20%;
-  min-width: 415px;
+  max-width: 400px;
+  min-width: 400px;
   margin-right:40px;
   @include respond(small){
     align-self: center;
@@ -122,10 +129,11 @@ body{
 }
 
 .flex-row {
+  overflow:hidden;
   padding-top: 60px;
   padding-bottom: 200px;
   margin: 0 auto;
-  max-width: 1400px;
+
   @include respond(medium){
         padding-top:10px;
   }

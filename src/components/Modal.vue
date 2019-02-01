@@ -1,15 +1,16 @@
 <template>
-  <div class="modal">
+  <div>
     <div class="modal__overlay">
       <div class="modal_wrapper">
-        <div class="modal__container">
+        <transition name="modal">
+          <div class="modal__container">
           <div class="modal__message">
             <p class="modal__paragraph">{{message}}</p>
           </div>
           <button class="modal__button" @click="hide" >{{isError?'Dismiss':'Cancel'}}</button>
           <button v-if="!isError" class="modal__button" @click="onConfirm">Confirm</button>
         </div>
-      
+      </transition>
       </div>
     </div>
   </div>
@@ -41,11 +42,13 @@ export default {
 @import '../scss/main.scss';
 
   .modal__paragraph{
-    font-size: 2rem;
+    font-size: 2.4rem;
     margin: 10px 0;
   }
 
+
   .modal__overlay{
+    transition: opacity .3s ease;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -66,7 +69,7 @@ export default {
     padding-left: 50px;
     padding-right: 50px;
     padding-bottom: 20px;
-    width: 400px;
+    max-width: 400px;
     background-color: $color__dark__pink;
     color: $color__pink;
   }
@@ -79,4 +82,18 @@ export default {
     background-color: $color__dark__pink;
     color: $color__pink;
   }
+
+  .modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
 </style>
