@@ -9,7 +9,7 @@
     <div class="file__selection">ASM</div>
   </div>
   <div v-if="!isToggled" class="file__description file__description-c">
-    This will generate a C hearder file with the TileData represented as an array of hexadecimal numbers
+    This will generate a C header file with the TileData represented as an array of hexadecimal numbers
   </div>
   <div v-if="isToggled" class="file__description file__description-asm">
     This will generate an asm file written in RGBDS Assembly, click <a target="_blank" href="https://github.com/rednex/rgbds">here</a> for more information.
