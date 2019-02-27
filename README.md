@@ -2,7 +2,9 @@
 
 Welcome. This tool is designed to generate data used by the gameboy to display graphics to its screen.
 
-This tool allows a user to draw an image, export the data to either C, or Assembly, and import that data into an exsiting gameboy project.
+This tool allows a user to draw an image, export the data to either C, or Assembly, and import that data into an exsisting gameboy project.
+
+This project was started to help help further understand gameboy hardware, and to assist in creating some simple game boy demos 
 
 This project will be updated over time,  include the following features. 
 
