@@ -104,7 +104,7 @@ export default{
   }
 
   #viewport{
-  background-color: #ccdba4;
+  background-color: #9eb929;
   }
 
   #grid {

@@ -122,7 +122,6 @@ body{
   @include respond(small){
     align-self: center;
     margin: 0;
-    
   }
 }
 

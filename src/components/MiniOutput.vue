@@ -25,7 +25,7 @@ components:{
 
 <style lang="scss">
     .mini_output_holder{
-    background-color: #ccdaa6;
+    background-color: #9eb929;
     margin-bottom: 24px;
     display: flex;
     width: 200px;
