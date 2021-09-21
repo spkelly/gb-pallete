@@ -13,7 +13,7 @@
 
 
 <script>
-import FileControls from './FileControls.vue';
+// import FileControls from './FileControls.vue';
 
 export default{
   name: "DataOutput",
@@ -22,9 +22,9 @@ export default{
       return this.$store.getters.getConvertedPixelData
     }
   },
-    components:{
-    FileControls
-  }
+  //   components:{
+  //   FileControls
+  // }
 
 }
 </script>

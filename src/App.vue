@@ -25,7 +25,7 @@
 
 <script>
 import colorPallete from './components/ColorPallete.vue';
-import TileCanvas from './components/TileCanvas.vue';
+// import TileCanvas from './components/TileCanvas.vue';
 import DownloadButton from './components/DownloadButton.vue';
 import FileControls from './components/FileControls';
 import Output from './components/Output';
@@ -49,8 +49,7 @@ export default {
 
   components:{
     Output,
-    colorPallete, 
-    TileCanvas,
+    colorPallete,
     Modal,
     DownloadButton,
     FileControls,

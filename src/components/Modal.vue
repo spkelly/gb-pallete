@@ -19,7 +19,7 @@
 
 <script>
 import {mapState,mapActions} from 'vuex';
-import {TOGGLE_MODAL} from '../store/types';
+// import {TOGGLE_MODAL} from '../store/types';
 
 export default {
   name:"Modal",

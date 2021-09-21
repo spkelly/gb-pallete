@@ -78,14 +78,14 @@ export function drawGrid(canvas,ctx){
   ctx.stroke();
 }
 
-export function checkForDraw(e){
-  let position = getMousePosition(e);
-  let coords = getPixelCoordinates(position);
-  if(!_.isEqual(coords,prevCoords)){
-    draw(coords);
-  }
-  prevCoords = coords;
-}
+// export function checkForDraw(e){
+//   let position = getMousePosition(e);
+//   let coords = getPixelCoordinates(position);
+//   if(!_.isEqual(coords,prevCoords)){
+//     draw(coords);
+//   }
+//   prevCoords = coords;
+// }
 
 export function draw(coords){
   let offset = getPixelOffset(coords);

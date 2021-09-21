@@ -11,16 +11,16 @@
 </template>
 
 <script>
-import MiniOutput from './MiniOutput.vue';
+// import MiniOutput from './MiniOutput.vue';
 
 export default {
   name: "TileOutput",
   props:{
     tileData:Array
   },
-  components:{
-    MiniOutput
-  },
+  // components:{
+  //   MiniOutput
+  // },
   methods:{
   },
 

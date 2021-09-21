@@ -20,7 +20,8 @@
 <script>
 import ConsoleScreen from './ConsoleScreen';
 import ConsoleButtons from './ConsoleButtons';
-import {CANVAS_LARGE} from '../../store/types';
+//  UNUSED VAR
+//import {CANVAS_LARGE} from '../../store/types';
 
 export default {
   name:"Console",

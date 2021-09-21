@@ -32,7 +32,7 @@ export default{
   },
     // TODO: Make this cleaner especially getPaintLocation()
   methods:{
-    handleMouseUp(e){
+    handleMouseUp(){
       this.mouseDown = false;
     },
 

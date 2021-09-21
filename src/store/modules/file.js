@@ -43,7 +43,7 @@ const actions = {
       state.commit(types.SET_FILE_TYPE,"C");
     }
   },
-  [types.CHECK_FOR_DOWNLOAD]({getters,commit},){
+  [types.CHECK_FOR_DOWNLOAD]({getters},){
     let {fileName} = getters[types.GET_FILE_INFO];
     return new Promise((resolve)=>{
       validateFilename(fileName);
