@@ -80,7 +80,7 @@ export default {
 .data__copy {
   border: none;
   width: 20px;
-  background-color: #A1295E;
+  background-color: $color__pink;
 }
 
 .data__copy:hover {
